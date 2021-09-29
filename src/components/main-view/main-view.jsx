@@ -26,16 +26,35 @@ export class MainView extends React.Component {
   // ES6 
   render() {
     const { movies, selectedMovie } = this.state;
-
     if (selectedMovie) return <MovieView movie={selectedMovie} />
 
     if (movies.length === 0) return <div className="main-view">This list is empty</div>;
 
     return (
       <div className="main-view">
-        <button onClick={() => { alert('Nice!') }}>Click me!</button>
         {movies.map(movie => <MovieCard key={movie._id} movieData={movie} />)}
       </div>
     );
   }
+
+
+
+
+  /*
+  // ES5
+    render() {
+      const movies = this.state.movies;
+      if (movies.length === 0) {
+        return <div className="main-view">The List is empty!</div>
+      } else {
+        return (
+          <div className="main-view">
+            {movies.map((movie) => {
+              return <div key={movie._id}>{movie.Title}</div>;
+            })}
+          </div>
+        );
+      }
+    }
+    */
 }
