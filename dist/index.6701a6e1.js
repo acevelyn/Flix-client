@@ -22930,7 +22930,7 @@ class MainView extends _reactDefault.default.Component {
             movie: selectedMovie,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 29
+                lineNumber: 30
             },
             __self: this
         }));
@@ -22938,27 +22938,40 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 31
+                lineNumber: 32
             },
             __self: this,
             children: "This list is empty"
         }));
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 34
+                lineNumber: 35
             },
             __self: this,
-            children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movieData: movie,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                    onClick: ()=>{
+                        alert('Nice!');
+                    },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 35
+                        lineNumber: 36
                     },
-                    __self: this
-                }, movie._id)
-            )
+                    __self: this,
+                    children: "Click me!"
+                }),
+                movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                        movieData: movie,
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 37
+                        },
+                        __self: this
+                    }, movie._id)
+                )
+            ]
         }));
     }
 }
