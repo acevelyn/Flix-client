@@ -9,13 +9,13 @@ export class MainView extends React.Component {
     this.state = {
       movies: [
         {
-          _id: 1, Title: 'Inception', Description: 'descr1', ImagePath: '...'
+          _id: 1, Title: 'Inception', Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.', ImagePath: '...', Genre: 'Action', Director: 'Christopher Nolan'
         },
         {
-          _id: 2, Title: 'Clueless', Description: 'descr2', ImagePath: '...'
+          _id: 2, Title: 'Clueless', Description: 'Shallow, rich and socially successful Cher is at the top of her Beverly Hills high school\'s pecking scale. Seeing herself as a matchmaker, Cher first coaxes two teachers into dating each other.', ImagePath: '...', Genre: 'Comedy', Director: 'Amy Heckerling'
         },
         {
-          _id: 3, Title: 'Gladiator', Description: 'descr3', ImagePath: '...'
+          _id: 3, Title: 'Gladiator', Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.', ImagePath: '...', Genre: 'Action', Director: 'Ridley Scott'
         }
       ]
     }
@@ -30,13 +30,14 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie } = this.state;
 
-    if (selectedMovie) return <MovieView movie={selectedMovie} />;
-
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
 
     return (
       <div className="main-view">
-        {movies.map(movie => <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />)}
+        {selectedMovie ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+          : movies.map(movie => (<MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+          ))
+        }
       </div>
     );
   }
