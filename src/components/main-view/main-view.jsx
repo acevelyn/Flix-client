@@ -15,13 +15,13 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://evflixapp.herokuapp.com/movies')
-      .then((response) => {
+    axios.get('https://evflixapp.herokuapp.com/movies')
+      .then(response => {
         this.setState({
           movies: response.data
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
@@ -39,12 +39,13 @@ export class MainView extends React.Component {
 
     return (
       <div className="main-view">
-        {selectedMovie ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-          : movies.map(movie => (<MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+        {selectedMovie
+          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+          : movies.map(movie => (
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
           ))
         }
       </div>
     );
   }
-
 }

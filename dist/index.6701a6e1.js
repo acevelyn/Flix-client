@@ -22755,7 +22755,7 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('http://evflixapp.herokuapp.com/movies').then((response)=>{
+        _axiosDefault.default.get('https://evflixapp.herokuapp.com/movies').then((response)=>{
             this.setState({
                 movies: response.data
             });
@@ -22792,17 +22792,17 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 42
+                    lineNumber: 43
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                     movie: movie,
-                    onMovieClick: (movie1)=>{
-                        this.setSelectedMovie(movie1);
+                    onMovieClick: (newSelectedMovie)=>{
+                        this.setSelectedMovie(newSelectedMovie);
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 43
+                        lineNumber: 45
                     },
                     __self: this
                 }, movie._id)
