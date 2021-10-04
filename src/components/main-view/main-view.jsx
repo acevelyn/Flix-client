@@ -16,7 +16,7 @@ export class MainView extends React.Component {
 
   componentDidMount() {
     axios.get('https://evflixapp.herokuapp.com/movies')
-      .then(response => {
+      .then(response => {   // convert to JSON?
         this.setState({
           movies: response.data
         });
@@ -25,6 +25,10 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
+
+
+
+
 
 
   setSelectedMovie(newSelectedMovie) {
@@ -48,5 +52,6 @@ export class MainView extends React.Component {
         }
       </div>
     );
+
   }
 }
