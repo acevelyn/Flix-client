@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 import './registration-view.scss';
 
@@ -17,30 +19,50 @@ export function RegistrationView(props) {
     props.onRegistration(username);
   };
 
+  //   <Form>
+  //   <h1>Login</h1>
+  //   <Form.Group controlId="formUsername">
+  //     <Form.Label>Username:</Form.Label>
+  //     <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+  //   </Form.Group>
+
+  //   <Form.Group controlId="formPassword">
+  //     <Form.Label>Password:</Form.Label>
+  //     <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+  //   </Form.Group>
+
+  //   <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
+  //     Submit
+  //   </Button>
+  // </Form>
+
   return (
-    <form>
-      <label className="username">
-        Username:
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-      </label>
+    <Form>
+      <h1 className="register-title">Sign Up!</h1>
+      <Form.Group controlId="formUsername">
+        <Form.Label>Username:</Form.Label>
+        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+      </Form.Group>
 
-      <label className="password">
-        Password:
-        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </label>
+      <Form.Group controlId="formPassword">
+        <Form.Label>Password:</Form.Label>
+        <Form.Control type="text" onChange={e => setPassword(e.target.value)} />
+      </Form.Group>
 
-      <label className="email">
-        Email:
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </label>
+      <Form.Group controlId="formEmail">
+        <Form.Label>Email:</Form.Label>
+        <Form.Control type="text" onChange={e => setEmail(e.target.value)} />
+      </Form.Group>
 
-      <label className="birthdate">
-        Birthday:
-        <input type="text" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
-      </label>
+      <Form.Group controlId="formBirthdate">
+        <Form.Label>Birthday:</Form.Label>
+        <Form.Control type="text" onChange={e => setBirthdate(e.target.value)} />
+      </Form.Group>
 
-      <button className="register-button" type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+      <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
+        Submit
+      </Button>
+    </Form>
   );
 }
 
