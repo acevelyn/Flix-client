@@ -36,7 +36,7 @@ export function LoginView(props) {
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="text" placeholder="Enter password" value={password} onChange={e => setUsername(e.target.value)} />
+        <Form.Control type="text" placeholder="Enter password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
 
       <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
