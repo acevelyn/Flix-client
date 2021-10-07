@@ -22,12 +22,12 @@ export function LoginView(props) {
       <h1 className="login-title">Login</h1>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+        <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} />
       </Form.Group>
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+        <Form.Control type="text" placeholder="Enter password" onChange={e => setUsername(e.target.value)} />
       </Form.Group>
 
       <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
