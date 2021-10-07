@@ -24474,11 +24474,11 @@ function LoginView(props) {
         /* Send a request to the server for authentication */ _axiosDefault.default.post('https://evflixapp.herokuapp.com/login', {
             Username: username,
             Password: password
-        }).then((response)=>{
+        })/* If data matches what is in database, then call props.onLoggedIn(username) */ .then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
         }).catch((e1)=>{
-            console.log('no such user');
+            console.log('No such user');
         });
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
