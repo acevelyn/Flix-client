@@ -16,13 +16,13 @@ export function LoginView(props) {
     axios.post('https://evflixapp.herokuapp.com/login', {
       Username: username,
       Password: password
-    }) /* If data matches what is in database, then call props.onLoggedIn(username) */
+    })
       .then(response => {
         const data = response.data;
         props.onLoggedIn(data);
       })
       .catch(e => {
-        console.log('No such user')
+        console.log('no such user')
       });
   };
 

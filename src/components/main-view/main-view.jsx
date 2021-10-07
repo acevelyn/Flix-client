@@ -27,15 +27,8 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://evflixapp.herokuapp.com/movies')
-      .then(response => {   // convert to JSON?
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    let accessToken = local.localStorage.getItem('token');
+    if (accessToken)
   }
 
   /*When a movie is clicked, this function is invoked and updates 
@@ -53,11 +46,18 @@ export class MainView extends React.Component {
     });
   }
 
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user,
+      user: authData.user.Username
     });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
   }
+
+
 
   render() {
     const { movies, selectedMovie, user, register } = this.state;
