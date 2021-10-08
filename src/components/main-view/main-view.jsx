@@ -1,12 +1,12 @@
+// Modules
 import React from 'react';
 import axios from 'axios';
 
+// Components
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieView } from '../movie-view/movie-view';
 import { MovieCard } from '../movie-card/movie-card';
-
-
 
 // React Bootstrap Styling
 import Row from 'react-bootstrap/Row';
@@ -29,15 +29,13 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://evflixapp.herokuapp.com/movies')
-      .then(response => {   // convert to JSON?
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
       });
+      this.getMovies(accessToken);
+    }
   }
 
   /*When a movie is clicked, this function is invoked and updates 
@@ -49,15 +47,36 @@ export class MainView extends React.Component {
     });
   }
 
-  onRegistration(register) {
+  // Log In
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      register
+      user: authData.user.Username
     });
+    localStorage.setItem('token', authData);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
   }
 
-  onLoggedIn(user) {
+  getMovies(token) {
+    axios.get('https://evflixapp.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  // Register
+  onRegistration(register) {
     this.setState({
-      user,
+      register: register
     });
   }
 
