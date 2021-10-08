@@ -28,6 +28,7 @@ export class MainView extends React.Component {
     };
   }
 
+
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -58,6 +59,7 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  // Get All Movies
   getMovies(token) {
     axios.get('https://evflixapp.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
