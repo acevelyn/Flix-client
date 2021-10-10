@@ -30,12 +30,16 @@ export class MainView extends React.Component {
 
 
   componentDidMount() {
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
+    const accesstoken = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+    if (accesstoken !== null) {
+      Promise.all([
+        this.getUser(username, accesstoken),
+        this.getMovies(accesstoken),
+      ]).catch((e) => {
+        console.error(e);
+        alert("Something went wrong ...");
       });
-      this.getMovies(accessToken);
     }
   }
 
