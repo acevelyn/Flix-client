@@ -35,6 +35,7 @@ export class MainView extends React.Component {
       this.setState({
         user: localStorage.getItem('user')
       });
+      console.log('component did mount');
       this.getMovies(accessToken);
     }
   }
@@ -54,7 +55,7 @@ export class MainView extends React.Component {
     this.setState({
       user: authData.user.Username
     });
-    localStorage.setItem('token', authData);
+    localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
   }
@@ -72,7 +73,7 @@ export class MainView extends React.Component {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
   }
 
   // Register
@@ -89,6 +90,8 @@ export class MainView extends React.Component {
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
     if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+
+
 
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
