@@ -12,6 +12,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button'
 
 
 import './main-view.scss';
@@ -76,6 +77,14 @@ export class MainView extends React.Component {
       })
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    })
+  }
+
   // Register
   onRegistration(register) {
     this.setState({
@@ -84,34 +93,39 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user, register } = this.state;
+    const { movies, user, selectedMovie } = this.state;
+    console.log("render", user);
 
-    if (!register) return <RegistrationView onRegistration={(register) => this.onRegistration(register)} />;
+    // if (!register) return <RegistrationView onRegistration={(register) => this.onRegistration(register)} />;
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
     if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-
 
 
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <Row className="main-view justify-content-md-center">
-        {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-        {selectedMovie
-          ? (
-            <Col md={8}>
-              <MovieView movie={selectedMovie} onBackClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie); }} />
-            </Col>
+      <div className="main-view">
+        <Button variant="primary" size="md" type="submit" onClick={() => { this.onLoggedOut() }}>
+          Logout
+        </Button>
+        <Row className="justify-content-md-center">
+          {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
+          {selectedMovie
+            ? (
+              <Col md={8}>
+                <MovieView movie={selectedMovie} onBackClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie); }} />
+              </Col>
 
-          )
-          : movies.map(movie => (
-            <Col md={3}>
-              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-            </Col>
-          ))}
-      </Row>
+            )
+            : movies.map(movie => (
+              <Col md={3}>
+                <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
+              </Col>
+            ))}
+        </Row>
+      </div>
     );
   }
 }
