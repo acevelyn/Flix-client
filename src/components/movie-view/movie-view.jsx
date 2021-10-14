@@ -1,4 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
+// React-Bootstrap Stylings
+import Button from 'react-bootstrap/Button';
+
+// MovieView SCSS
+import './movie-view.scss'
 
 
 export class MovieView extends React.Component {
