@@ -10,6 +10,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
+// import { ProfileView } from '../profile-view/profile-view';
 
 // React Bootstrap Styling
 import Row from 'react-bootstrap/Row';
@@ -63,6 +64,23 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+// // Get All Users 
+//  getUsers(token) {
+//     axios.post('https://evflixapp.herokuapp.com/users', {
+//       headers: { Authorization: `Bearer ${token}` }
+//     })
+//       .then(response => {
+//         // Assign the result to the state
+//         this.setState({
+//           users: response.data
+//         });
+//         console.log(response)
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+//   }
+
   // Get All Movies
   getMovies(token) {
     axios.get('https://evflixapp.herokuapp.com/movies', {
@@ -99,6 +117,9 @@ export class MainView extends React.Component {
 
     return (
       <Router>
+        <Button>
+        <h2>{user}</h2>
+        </Button>
         <Row className="main-view justify-content-md-center">
 
           {/* Root */}
@@ -121,6 +142,17 @@ export class MainView extends React.Component {
               <RegistrationView />
             </Col>
           }}/>
+
+          {/* 
+           <Route path="/users/:username" render={(history) => {
+             if (!user) return <Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+            if (movies.length === 0) return <div className="main-view" />;
+             return 
+              <ProfileView history={history} movies={movies}/>
+              }} /> */}
+
 
            {/* Movie by Movie Title */}
           <Route path="/movies/:movieId" render={({ match, history }) => {
