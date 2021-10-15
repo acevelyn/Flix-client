@@ -10,7 +10,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
-// import { ProfileView } from '../profile-view/profile-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 // React Bootstrap Styling
 import Row from 'react-bootstrap/Row';
@@ -26,9 +26,7 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       user: null,
-      register: null
     };
   }
 
@@ -44,14 +42,8 @@ export class MainView extends React.Component {
     }
   }
 
-  /*When a movie is clicked, this function is invoked and updates 
-    the state of the `selectedMovie` *property to that movie*/
 
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie
-    });
-  }
+
 
   // Log In
   onLoggedIn(authData) {
@@ -64,22 +56,22 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-// // Get All Users 
-//  getUsers(token) {
-//     axios.post('https://evflixapp.herokuapp.com/users', {
-//       headers: { Authorization: `Bearer ${token}` }
-//     })
-//       .then(response => {
-//         // Assign the result to the state
-//         this.setState({
-//           users: response.data
-//         });
-//         console.log(response)
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//   }
+// Get All Users 
+  getUsers(token) {
+    axios.post('https://evflixapp.herokuapp.com/users', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // Assign the result to the state
+        this.setState({
+          users: response.data
+        });
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   // Get All Movies
   getMovies(token) {
@@ -105,21 +97,14 @@ export class MainView extends React.Component {
     })
   }
 
-  // Register
-  onRegistration(register) {
-    this.setState({
-      register: register
-    });
-  }
-
   render() {
     const { movies, user } = this.state;
 
     return (
       <Router>
-        <Button>
-        <h2>{user}</h2>
-        </Button>
+        <Link to={`/users/${users.Username}`}>
+            <Button variant="link">{user}</Button>
+        </Link>
         <Row className="main-view justify-content-md-center">
 
           {/* Root */}
@@ -143,7 +128,7 @@ export class MainView extends React.Component {
             </Col>
           }}/>
 
-          {/* 
+          
            <Route path="/users/:username" render={(history) => {
              if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -151,7 +136,7 @@ export class MainView extends React.Component {
             if (movies.length === 0) return <div className="main-view" />;
              return 
               <ProfileView history={history} movies={movies}/>
-              }} /> */}
+              }} />
 
 
            {/* Movie by Movie Title */}
