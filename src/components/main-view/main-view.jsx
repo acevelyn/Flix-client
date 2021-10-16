@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Components
 import { LoginView } from '../login-view/login-view';
@@ -11,11 +12,13 @@ import { MovieCard } from '../movie-card/movie-card';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
+import { NavbarView } from '../navbar-view/navbar-view';
 
 // React Bootstrap Styling
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
+
 
 // SCSS Styling
 import './main-view.scss';
@@ -102,9 +105,9 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Link to={`/users/${users.Username}`}>
+      <NavbarView user={user} />
             <Button variant="link">{user}</Button>
-        </Link>
+
         <Row className="main-view justify-content-md-center">
 
           {/* Root */}
