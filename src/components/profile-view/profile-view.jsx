@@ -16,12 +16,12 @@ export class ProfileView extends React.Component {
       tempUsername: '',
       tempPassword: '',
       tempEmail: ''
-    }
+    };
   }
 
   componentDidMount(){
-    console.log('PROFILE VIEW')
-    let accessToken = localStorage.getItem('token');
+    console.log('PROFILE VIEW');
+    const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.getUser(accessToken);
     }
@@ -32,15 +32,16 @@ export class ProfileView extends React.Component {
     const username = localStorage.getItem('user');
     axios.get(
       `https://evflixapp.herokuapp.com/users/${username}`, 
-      { headers: { Authorization: `Bearer ${token}` }
+      { headers: { Authorization: `Bearer ${token}` },
     })
     .then((response)=> {
       console.log(response);
       this.setState({
         Username: response.data.Username,
         Email: response.data.Email,
+        Birthday: response.data.Birthday,
         FavoriteMovies: response.data.FavoriteMovies
-      })
+      });
     })
     .catch((error)=> {
       console.log(error);
@@ -79,8 +80,6 @@ export class ProfileView extends React.Component {
 
 
 
-
-
    // Deregister User
   handleDelete(user){
     const token = localStorage.getItem('token');
@@ -97,6 +96,18 @@ export class ProfileView extends React.Component {
         })
         alert('Account has been deleted')
     });
+  }
+
+  setUsername(username){
+    this.setState({ tempUsername: username });
+  }
+
+  setPassword(password){
+    this.setState({ tempPassword: password });
+  }
+
+  setEmail(email){
+    this.setState({ tempEmail: email });
   }
 
   // Remove A Favorite Movie
@@ -185,7 +196,7 @@ export class ProfileView extends React.Component {
     </Form>
      </>
     )
-  }
+  }}
 
 
 

@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link }  from 'react-router-dom';
 
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 
 export class NavbarView extends React.Component {
-  constructor(){
+  constructor() {
     super();
 
     this.state = {};
@@ -15,30 +15,38 @@ export class NavbarView extends React.Component {
     window.open('/', '_self');
   }
 
-  render(){
+  render() {
     const { user } = this.props;
-    const movies = '/';
+    const movies = `/`;
     const profile = `/users/${user}`;
 
     if (!user) return null;
+
     return (
-      <Navbar bg="dark" collapseOnSelect fixed="top" expand="lg" variant="dark">
-        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+      <Navbar bg="dark" collapseOnSelect fixed='top' expand="lg" variant="dark" >
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav className="me-auto">
+
             <Nav.Link as={Link} to={movies} className="link-text">
               Movies
             </Nav.Link>
+
             <Nav.Link as={Link} to={profile} className="link-text">
               Profile
             </Nav.Link>
+
             <Nav.Link to={'/'} onClick={this.onLoggedOut}>
               Log Out
             </Nav.Link>
-          </Nav>
-          </Navbar.Collapse>
-      </Navbar>
-    )
-  }
 
+          </Nav>
+          <Form inline>
+            <FormControl type="text" placeholder="Search" />
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
+    );
+  }
 }
