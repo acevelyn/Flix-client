@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-import {Button} from 'react-bootstrap/Button';
-import {Form} from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap/Button';
+import { Form } from 'react-bootstrap/Form';
 
 
 export class ProfileView extends React.Component {
@@ -29,22 +29,17 @@ export class ProfileView extends React.Component {
   getUsers(token) {
     const username = localStorage.getItem('user');
     axios.get(`https://evflixapp.herokuapp.com/users/${username}`, {
-      headers: {Authorization: `Bearer ${token}`}
+      headers: { Authorization: `Bearer ${token}` }
     })
     .then((response)=> {
-      this.setState({
-        Username: response.data.Username,
-        Password: response.data.Password,
-        Email: response.data.Email,
-        Birthday: response.data.FavoriteMovies
-      });
+      console.log(response);
     })
     .catch((error)=> {
       console.log(error);
     })
   }
 
-   // Update User Info
+   // Update User Info / PUT Request 1
   handleUpdate(newUsername, newPassword, newEmail, newBirthday) {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -71,7 +66,31 @@ export class ProfileView extends React.Component {
     });
   }
 
-//   // Deregister User
+  // ATTEMPT AT PUT REQUEST 2
+  // handleUpdate(e) {
+  //   const token = localStorage.getItem('token');
+  //   const username = localStorage.getItem('user');
+  //   axios.put(`https://evflixapp.herokuapp.com/users/${username}`, {
+  //     headers: {Authorization: `Bearer ${token}`}, {
+  //       Username: username,
+  //       Password: password,
+  //       Email: email,
+  //       Birthday: birthday,
+  //       // FavoriteMovies: []
+  //     }
+  //   })
+  //   .then((response)=> {
+  //     const data = response.data;
+  //     console.log(data);
+  //     window.open('/','_self');
+  //   })
+  //   .catch((err)=>{
+  //     console.log(err);
+  //   })
+
+
+
+   // Deregister User
   handleDelete(user){
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -84,7 +103,7 @@ export class ProfileView extends React.Component {
         user: null
         })
         alert('Account has been deleted')
-    })
+    });
   }
 
   // Remove A Favorite Movie
@@ -93,7 +112,7 @@ export class ProfileView extends React.Component {
     const username = localStorage.getItem('user');
 
   axios.delete(`https://evflixapp.com/users/${username}/movies/${movie._id}`,
-  { headers: { Authorization: `Bearer ${token}` }
+  { headers: { Authorization: `Bearer ${token}` },
   })
   .then(() =>{
     console.log('Movie was removed')
@@ -158,7 +177,7 @@ export class ProfileView extends React.Component {
     )
   }
 
-// } // end of class ProfileView
+ } // end of class ProfileView
 
 
 
