@@ -60,14 +60,14 @@ export class MainView extends React.Component {
   }
 
 // Get All Users 
-  getUsers(token) {
+  getUser(token) {
     axios.post('https://evflixapp.herokuapp.com/users', {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
         // Assign the result to the state
         this.setState({
-          users: response.data
+          user: response.data
         });
         console.log(response)
       })
@@ -105,7 +105,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-      <NavbarView user={user} />
+      <NavbarView />
             <Button variant="link">{user}</Button>
 
         <Row className="main-view justify-content-md-center">
@@ -180,4 +180,4 @@ export class MainView extends React.Component {
       </Router>
     );
   }
-}
+  }
