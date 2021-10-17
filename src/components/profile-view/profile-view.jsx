@@ -39,7 +39,6 @@ export class ProfileView extends React.Component {
       this.setState({
         Username: response.data.Username,
         Email: response.data.Email,
-        Birthday: response.data.Birthday,
         FavoriteMovies: response.data.FavoriteMovies
       })
     })
@@ -53,7 +52,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     axios.put(
-        `https://evflixapp.herokuapp.com/users/${username}`, 
+      `https://evflixapp.herokuapp.com/users/${username}`, 
         {
         Username: newUsername,
         Password: newPassword,
@@ -121,7 +120,7 @@ export class ProfileView extends React.Component {
   }
 
   setPassword(password){
-    this.setState({ tempPassword: password });
+    this.setState({ temPassword: password });
   }
 
   setEmail(email){
@@ -173,18 +172,20 @@ export class ProfileView extends React.Component {
       type="submit" 
       onClick={
         (e) => {
-          e.preventDefault()
+        e.preventDefault();
         this.handleUpdate(
           this.state.tempUsername,
           this.state.tempPassword,
           this.state.tempEmail
-          )
+          );
         }
         }>
         Submit
       </Button>
     </Form>
-     </>)}}
+     </>
+    )
+  }
 
 
 
