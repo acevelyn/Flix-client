@@ -105,7 +105,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-      {/* <NavbarView user={user} /> */}
+      <NavbarView user={user} />
             <Button variant="link">{user}</Button>
 
         <Row className="main-view justify-content-md-center">

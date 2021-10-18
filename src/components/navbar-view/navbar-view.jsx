@@ -1,7 +1,7 @@
 import React from 'react';
-// import { Link }  from 'react-router-dom';
+import { Link }  from 'react-router-dom';
 
-import { Navbar, Nav, Form, FormControl, Link } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 
 export class NavbarView extends React.Component {
   constructor() {
