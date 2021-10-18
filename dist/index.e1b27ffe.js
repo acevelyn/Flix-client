@@ -22852,14 +22852,6 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_navbarView.NavbarView, {
-                    user: user,
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 108
-                    },
-                    __self: this
-                }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                     variant: "link",
                     __source: {
@@ -40857,7 +40849,7 @@ parcelHelpers.export(exports, "NavbarView", ()=>NavbarView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
+// import { Link }  from 'react-router-dom';
 var _reactBootstrap = require("react-bootstrap");
 class NavbarView extends _reactDefault.default.Component {
     constructor(){
@@ -40910,8 +40902,8 @@ class NavbarView extends _reactDefault.default.Component {
                             },
                             __self: this,
                             children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactRouterDom.Link, {
-                                    as: _reactRouterDom.Link,
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactBootstrap.Link, {
+                                    as: _reactBootstrap.Link,
                                     to: movies,
                                     className: "link-text",
                                     __source: {
@@ -40921,8 +40913,8 @@ class NavbarView extends _reactDefault.default.Component {
                                     __self: this,
                                     children: "Movies"
                                 }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactRouterDom.Link, {
-                                    as: _reactRouterDom.Link,
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactBootstrap.Link, {
+                                    as: _reactBootstrap.Link,
                                     to: profile,
                                     className: "link-text",
                                     __source: {
@@ -40932,7 +40924,7 @@ class NavbarView extends _reactDefault.default.Component {
                                     __self: this,
                                     children: "Profile"
                                 }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactRouterDom.Link, {
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactBootstrap.Link, {
                                     to: '/',
                                     onClick: this.onLoggedOut,
                                     __source: {
@@ -40973,6 +40965,6 @@ class NavbarView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","react-router-dom":"etVME","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
 
 //# sourceMappingURL=index.e1b27ffe.js.map
