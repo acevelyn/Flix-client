@@ -31,6 +31,9 @@ export class MainView extends React.Component {
       movies: [],
       user: null,
     };
+
+    this.onLoggedOut = this.onLoggedOut.bind(this)
+
   }
 
 
@@ -146,7 +149,7 @@ export class MainView extends React.Component {
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
-             return <ProfileView history={history} movies={movies}/>
+             return <ProfileView history={history} movies={movies} logOutHandler={this.onLoggedOut}/>
               }} />
 
 

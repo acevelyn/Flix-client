@@ -212,6 +212,9 @@ export class ProfileView extends React.Component {
         </Button>
         <br/>
 
+        <button onClick={props.logOutHandler}>New Log Out Button</button>
+        <br/>
+
       </div>
     </Form>
      </>
