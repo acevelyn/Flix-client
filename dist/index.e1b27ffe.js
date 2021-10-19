@@ -22784,7 +22784,6 @@ class MainView extends _reactDefault.default.Component {
             movies: [],
             user: null
         };
-        this.onLoggedOut = this.onLoggedOut.bind(this);
     }
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
@@ -22850,7 +22849,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 111
+                lineNumber: 108
             },
             __self: this,
             children: [
@@ -22858,14 +22857,14 @@ class MainView extends _reactDefault.default.Component {
                     to: `/users/${user}`,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 113
+                        lineNumber: 110
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                         variant: "link",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 114
+                            lineNumber: 111
                         },
                         __self: this,
                         children: user
@@ -22875,7 +22874,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 117
+                        lineNumber: 114
                     },
                     __self: this,
                     children: [
@@ -22901,7 +22900,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 120
+                                lineNumber: 117
                             },
                             __self: this
                         }),
@@ -22918,7 +22917,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 133
+                                lineNumber: 130
                             },
                             __self: this
                         }),
@@ -22935,13 +22934,12 @@ class MainView extends _reactDefault.default.Component {
                                 }));
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_profileView.ProfileView, {
                                     history: history,
-                                    movies: movies,
-                                    logOutHandler: this.onLoggedOut
+                                    movies: movies
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 147
+                                lineNumber: 144
                             },
                             __self: this
                         }),
@@ -22967,7 +22965,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 157
+                                lineNumber: 154
                             },
                             __self: this
                         }),
@@ -22993,7 +22991,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 168
+                                lineNumber: 165
                             },
                             __self: this
                         }),
@@ -23019,7 +23017,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 179
+                                lineNumber: 176
                             },
                             __self: this
                         })
@@ -23028,14 +23026,14 @@ class MainView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 190
+                        lineNumber: 187
                     },
                     __self: this
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx("h5", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 191
+                        lineNumber: 188
                     },
                     __self: this,
                     children: "Log Out"
@@ -23049,7 +23047,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 193
+                        lineNumber: 190
                     },
                     __self: this,
                     children: "Logout"
@@ -30432,22 +30430,6 @@ class ProfileView extends _reactDefault.default.Component {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
                                         lineNumber: 213
-                                    },
-                                    __self: this
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                                    onClick: props.logOutHandler,
-                                    __source: {
-                                        fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 215
-                                    },
-                                    __self: this,
-                                    children: "New Log Out Button"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx("br", {
-                                    __source: {
-                                        fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 216
                                     },
                                     __self: this
                                 })
