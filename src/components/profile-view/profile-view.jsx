@@ -2,7 +2,8 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Button, Form } from 'react-bootstrap';
+// React Bootstrap Stylings
+import { Row, Col, Button, Form } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
   constructor(){
@@ -78,27 +79,6 @@ export class ProfileView extends React.Component {
       console.log(error)
     });
   }
-
-
-
-   // Deregister User
-  handleDelete(user){
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    axios.delete(
-      `http://exflixapp.herokuapp.com/users/${username}`,
-     { headers: { Authorization: `Bearer ${token}`}}
-     )
-    .then(()=> {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-        this.setState({
-        user: null
-        })
-        alert('Account has been deleted')
-    });
-  }
-
   setUsername(username){
     this.setState({ tempUsername: username });
   }
@@ -110,6 +90,27 @@ export class ProfileView extends React.Component {
   setEmail(email){
     this.setState({ tempEmail: email });
   }
+
+
+   // Deregister User
+  handleDeregister(user){
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+    axios.delete(
+      `http://exflixapp.herokuapp.com/users/${username}`,
+     { headers: { Authorization: `Bearer ${token}`}}
+     )
+    .then(()=> {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+        this.setState({
+        user: null  // is this correct? user is not a state?
+        })
+        alert('Account has been deleted')
+    });
+  }
+
+
 
   // Remove A Favorite Movie
   removeFavoriteMovie(movie) {
@@ -131,8 +132,8 @@ export class ProfileView extends React.Component {
     //  const { user } = this.props;
       return (
         <>
-        <h1> Profile Information</h1>
         <div className="profile-view">
+          <h1> Profile Information</h1>
           <div className="username-info">
              <span className="label">Username:</span>
              <span className="value">{this.state.Username}</span>
@@ -148,9 +149,21 @@ export class ProfileView extends React.Component {
            <div className="favorite-movies">
              <span className="label">Favorite Movies:</span>
              <span className="value">{this.state.FavoriteMovies}</span>
+             {/* Create Cards for Each Favorite Movie that has the button/link of opening up the 
+             MovieView and a button/link to remove that movie from your favorites */}
            </div>
+           {/*  Remove Favorite Movie Button */}
+        <Button variant="secondary" size="sm" type="submit" 
+          onClick={(e)=> {
+            e.preventDefault();
+            this.removeFavoriteMovie(
+            this.state.FavoriteMovies);
+            }}>Remove A Movie from Favorites
+        </Button>
         </div>
+       
       <Form>
+      <br />
       <h2 className="update-title">Update Account Info</h2>
         <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
@@ -166,7 +179,8 @@ export class ProfileView extends React.Component {
         <Form.Label>Email:</Form.Label>
         <Form.Control type="text" onChange={e => this.setEmail(e.target.value)} />
       </Form.Group>
-
+      
+      {/* Submit Button */}
       <Button 
       variant="primary" 
       size="md" 
@@ -183,6 +197,22 @@ export class ProfileView extends React.Component {
         }>
         Submit
       </Button>
+
+      <div className="other-options">
+        <br />
+        <h4>Delete Account</h4>
+
+        {/* Deregister Button */}
+        <Button variant="secondary" size="sm" type="submit" 
+          onClick={(e)=> {
+            e.preventDefault();
+            this.handleDeregister(
+            this.state.user);
+            }}>Deregister
+        </Button>
+        <br/>
+
+      </div>
     </Form>
      </>
     )

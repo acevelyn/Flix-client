@@ -108,7 +108,7 @@ export class MainView extends React.Component {
       <Router>
       {/* <NavbarView user={user} /> */}
             <Link to={`/users/${user}`}>
-              <Button variant="link">Your Profile</Button>
+              <Button variant="link">{user}</Button>
             </Link>
 
         <Row className="main-view justify-content-md-center">
@@ -184,8 +184,10 @@ export class MainView extends React.Component {
           }
           } />
         </Row>
-        {/* Log Out Button */}
-        <Button variant="primary" size="md" type="submit" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+        <br />
+          <h5>Log Out</h5>
+          {/* Log Out Button */}
+          <Button variant="secondary" size="md" type="submit" onClick={() => { this.onLoggedOut() }}>Logout</Button>
       </Router>
     );
   }
