@@ -1,3 +1,4 @@
+// CLASS COMPONENT
 import React from 'react';
 import axios from 'axios';
 
@@ -5,7 +6,7 @@ import { Button, Form } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
   constructor(){
-    super()
+    super();
     this.state = {
       Username: null,
       Password: null,
@@ -123,25 +124,14 @@ export class ProfileView extends React.Component {
   })
   .catch((error)=> {
     console.log(error);
-  })
-  }
+  })}
 
-  setUsername(username){
-    this.setState({ tempUsername: username });
-  }
-
-  setPassword(password){
-    this.setState({ temPassword: password });
-  }
-
-  setEmail(email){
-    this.setState({ tempEmail: email });
-  }
 
   render(){
     //  const { user } = this.props;
       return (
         <>
+        <h1> Profile Information</h1>
         <div className="profile-view">
           <div className="username-info">
              <span className="label">Username:</span>
@@ -161,7 +151,7 @@ export class ProfileView extends React.Component {
            </div>
         </div>
       <Form>
-      <h1 className="update-title">Update Account Info</h1>
+      <h2 className="update-title">Update Account Info</h2>
         <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" onChange={e => this.setUsername(e.target.value)} />

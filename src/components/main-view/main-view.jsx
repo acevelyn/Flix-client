@@ -60,21 +60,21 @@ export class MainView extends React.Component {
   }
 
 // Get All Users 
-  getUsers(token) {
-    axios.post('https://evflixapp.herokuapp.com/users', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        // Assign the result to the state
-        this.setState({
-          users: response.data
-        });
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  // getUsers(token) {
+  //   axios.post('https://evflixapp.herokuapp.com/users', {
+  //     headers: { Authorization: `Bearer ${token}` }
+  //   })
+  //     .then(response => {
+  //       // Assign the result to the state
+  //       this.setState({
+  //         user: response.data
+  //       });
+  //       console.log(response)
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
 
   // Get All Movies
   getMovies(token) {
@@ -102,11 +102,14 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, user } = this.state;
+    console.log('render', user);
 
     return (
       <Router>
-      <NavbarView user={user} />
-            <Button variant="link">{user}</Button>
+      {/* <NavbarView user={user} /> */}
+            <Link to={`/users/${user}`}>
+              <Button variant="link">Your Profile</Button>
+            </Link>
 
         <Row className="main-view justify-content-md-center">
 
@@ -131,6 +134,12 @@ export class MainView extends React.Component {
             </Col>
           }}/>
 
+          
+          {/* <Route path="/profile" render={() => {
+            if (!user) return <Col>
+              <ProfileView />
+            </Col>
+          }} /> */}
           
            <Route path="/users/:username" render={(history) => {
              if (!user) return <Col>
