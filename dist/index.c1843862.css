@@ -8,6 +8,9 @@ span {
   font-weight: 300px;
 }
 
+.label {
+  font-weight: bold;
+}
 
 .my-flix {
   color: steelblue;

@@ -106,13 +106,19 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-      {/* <NavbarView user={user} /> */}
-            <Link to={`/users/${user}`}>
-              <Button variant="link">{user}</Button>
+             {/* <NavbarView user={user} /> */}
+            <Link to={'/'}>
+              <Button variant="link">Home</Button>
             </Link>
 
-        <Row className="main-view justify-content-md-center">
+            <Link to={`/users/${user}`}>
+              <Button variant="link">Profile</Button>
+            </Link>
 
+              {/* Log Out Button */}
+          <Button variant="link" onClick={()=> { this.onLoggedOut() }}>Logout</Button>
+
+        <Row className="main-view justify-content-md-center">
           {/* Root */}
           <Route exact path="/" render={() => {
             if (!user) return <Col>
@@ -184,10 +190,6 @@ export class MainView extends React.Component {
           }
           } />
         </Row>
-        <br />
-          <h5>Log Out</h5>
-          {/* Log Out Button */}
-          <Button variant="secondary" size="md" type="submit" onClick={() => { this.onLoggedOut() }}>Logout</Button>
       </Router>
     );
   }
