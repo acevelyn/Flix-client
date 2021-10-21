@@ -1,3 +1,6 @@
+// FUNCTION COMPONENTS
+
+// Modules
 import React from 'react';
 
 function UserInfo({ name, email, birthday }) {

@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
+// Stylings
+import './login-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import './login-view.scss';
+
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [validated, setValidated] = useState(false)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false){
+      event.preventDefault();
+      event.stopPropagation();
+      console.log('Invalid Credentials')
+    }
+    setValidated(true);
+    event.preventDefault();
     /* Send a request to the server for authentication */
     axios.post('https://evflixapp.herokuapp.com/login', {
       Username: username,
@@ -27,22 +40,39 @@ export function LoginView(props) {
   };
 
   return (
+    <>
     <Form>
       <h1 className="login-title">Login</h1>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
+        <Form.Control type="text" 
+        placeholder="Enter username" 
+        value={username} 
+        onChange={e => setUsername(e.target.value)} />
+        <Form.Control.Feedback type="invalid">
+          Please enter a valid Username
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="text" placeholder="Enter password" value={password} onChange={e => setPassword(e.target.value)} />
+        <Form.Control type="password" 
+        placeholder="Enter password" value={password} 
+        onChange={e => setPassword(e.target.value)} />
+        <Form.Control.Feedback type="invalid">
+          Please enter a valid password
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
+      
+    <Link to={'/register'}>
+     <Button variant="link">Register Now</Button>
+    </Link>
     </Form>
+    </>
   );
 }
 

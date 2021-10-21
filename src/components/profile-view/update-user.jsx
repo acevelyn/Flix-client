@@ -1,7 +1,13 @@
+// FUNCTION COMPONENT
+
+// Modules
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Stylings
 import {Form, Button } from 'react-bootstrap';
+
+
 
 function UpdateUser({ tempUsername, tempEmail, tempPassword, user}) {
   return (

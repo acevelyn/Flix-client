@@ -1,9 +1,13 @@
+// FUNCTION COMPONENT
+
+// Modules
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Stylings
 import Button from 'react-bootstrap/Button';
 
-function FavMovieView({ favoriteMovieList, movies }) {
+function FavMovieView({ favoriteMovieList, movies }) { // both parameters can be used as state or props
 
   return (
       <div className="favorite-movies">

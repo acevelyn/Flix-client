@@ -14,14 +14,12 @@ import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 
-// React Bootstrap Styling
+// Styling
+import './main-view.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 
-
-// SCSS Styling
-import './main-view.scss';
 
 export class MainView extends React.Component {
 

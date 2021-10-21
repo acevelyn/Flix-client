@@ -1,4 +1,6 @@
 // CLASS COMPONENT
+
+// Modules
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -6,12 +8,10 @@ import UserInfo  from './user-info';
 import FavMovieView from './favorite-movies';
 import UpdateUser from './update-user';
 
-// React Bootstrap Stylings
+// Stylings
+import './profile-view.scss';
 import { Row, Col, Button, Form, Card } from 'react-bootstrap';
 
-
-// SCSS Stylings
-import './profile-view.scss';
 
 export class ProfileView extends React.Component {
   constructor(){
@@ -125,8 +125,6 @@ export class ProfileView extends React.Component {
     });
   }
 
-
-
   // Remove A Favorite Movie
   removeFavoriteMovie(movie) {
 
@@ -141,18 +139,20 @@ export class ProfileView extends React.Component {
     })
     .catch((error)=> {
     console.log(error);
-    })}
+    })
+    }
 
-
-
+   // RENDER THIS..
   render(){
       return (
         <>
         <UserInfo name={this.state.Username} email={this.state.Email} birthday={this.state.Birthday}/>
         <FavMovieView favoriteMovieList={this.state.FavoriteMovies} movies={this.props.movies}/>
         <UpdateUser tempEmail={this.state.tempEmail} tempPassword={this.state.tempPassword} tempUsername={this.state.tempUsername} user={this.state.user}/>
-      
-      
+
+    {/* <div className="logout-button">
+      <Button variant="link" onClick={()=> { this.onLoggedOut() }}>Logout</Button>
+    </div> */}
      </>
     )
   }}
