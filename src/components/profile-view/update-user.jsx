@@ -1,37 +1,13 @@
 // FUNCTION COMPONENT
 
 // Modules
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 // Stylings
 import {Form, Button } from 'react-bootstrap';
 
-// NEW
 
-// export function LoginView(props) {
-//   const [username, newUsername] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [validated, setValidated] = useState(false)
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     /* Send a request to the server for authentication */
-//     axios.post('https://evflixapp.herokuapp.com/login', {
-//       Username: username,
-//       Password: password
-//     }) /* If data matches what is in database, then call props.onLoggedIn(username) */
-//       .then(response => {
-//         const data = response.data;
-//         props.onLoggedIn(data);
-//       })
-//       .catch(e => {
-//         console.log('No such user')
-//       });
-//   };
-
-// END OF NEW
 
 function UpdateUser({ tempUsername, tempEmail, tempPassword, user}) {
   return (

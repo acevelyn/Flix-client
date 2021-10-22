@@ -27768,7 +27768,6 @@ function LoginView(props) {
                             __self: this
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control.Feedback, {
-                            type: "invalid",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
                                 lineNumber: 46
@@ -41143,36 +41142,13 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 // Stylings
 var _reactBootstrap = require("react-bootstrap");
-// NEW
-// export function LoginView(props) {
-//   const [username, newUsername] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [validated, setValidated] = useState(false)
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     /* Send a request to the server for authentication */
-//     axios.post('https://evflixapp.herokuapp.com/login', {
-//       Username: username,
-//       Password: password
-//     }) /* If data matches what is in database, then call props.onLoggedIn(username) */
-//       .then(response => {
-//         const data = response.data;
-//         props.onLoggedIn(data);
-//       })
-//       .catch(e => {
-//         console.log('No such user')
-//       });
-//   };
-// END OF NEW
 function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
-            lineNumber: 38
+            lineNumber: 14
         },
         __self: this,
         children: [
@@ -41180,7 +41156,7 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                 className: "update-title",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 39
+                    lineNumber: 15
                 },
                 __self: this,
                 children: "Update Account Info"
@@ -41189,14 +41165,14 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 40
+                    lineNumber: 16
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 41
+                            lineNumber: 17
                         },
                         __self: this,
                         children: "Username:"
@@ -41211,7 +41187,7 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                         placeholder: "Enter New Username",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 42
+                            lineNumber: 18
                         },
                         __self: this
                     })
@@ -41221,14 +41197,14 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 51
+                    lineNumber: 27
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 52
+                            lineNumber: 28
                         },
                         __self: this,
                         children: "Password:"
@@ -41244,7 +41220,7 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                         placeholder: "New Password Must be at least 8 Characters",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 53
+                            lineNumber: 29
                         },
                         __self: this
                     })
@@ -41254,14 +41230,14 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                 controlId: "formEmail",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 62
+                    lineNumber: 38
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 63
+                            lineNumber: 39
                         },
                         __self: this,
                         children: "Email:"
@@ -41273,7 +41249,7 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                         placeholder: "Enter New Email",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 64
+                            lineNumber: 40
                         },
                         __self: this
                     })
@@ -41289,7 +41265,7 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                 },
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 72
+                    lineNumber: 48
                 },
                 __self: this,
                 children: "Submit"
@@ -41298,21 +41274,21 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                 className: "other-options",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 89
+                    lineNumber: 65
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 90
+                            lineNumber: 66
                         },
                         __self: this
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 91
+                            lineNumber: 67
                         },
                         __self: this,
                         children: "Delete Account"
@@ -41327,7 +41303,7 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                         },
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 93
+                            lineNumber: 69
                         },
                         __self: this,
                         children: "Deregister"
@@ -41335,7 +41311,7 @@ function UpdateUser({ tempUsername , tempEmail , tempPassword , user  }) {
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 99
+                            lineNumber: 75
                         },
                         __self: this
                     })
@@ -41354,7 +41330,7 @@ $RefreshReg$(_c, "UpdateUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO"}],"5Jwf5":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"5Jwf5":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0880 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

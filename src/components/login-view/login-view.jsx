@@ -43,7 +43,7 @@ export function LoginView(props) {
         value={username} 
         required
         onChange={e => setUsername(e.target.value)} />
-        <Form.Control.Feedback type="invalid">
+        <Form.Control.Feedback>
           Please enter a valid Username
         </Form.Control.Feedback>
       </Form.Group>
