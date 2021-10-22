@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
 
 // Stylings
 import './login-view.scss';
@@ -17,13 +17,6 @@ export function LoginView(props) {
   const [validated, setValidated] = useState(false)
 
   const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false){
-      event.preventDefault();
-      event.stopPropagation();
-      console.log('Invalid Credentials')
-    }
-    setValidated(true);
     event.preventDefault();
     /* Send a request to the server for authentication */
     axios.post('https://evflixapp.herokuapp.com/login', {
@@ -48,17 +41,22 @@ export function LoginView(props) {
         <Form.Control type="text" 
         placeholder="Enter username" 
         value={username} 
+        required
         onChange={e => setUsername(e.target.value)} />
-        <Form.Control.Feedback type="invalid">
+        <Form.Control.Feedback>
           Please enter a valid Username
         </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" 
-        placeholder="Enter password" value={password} 
-        onChange={e => setPassword(e.target.value)} />
+        <Form.Control 
+          type="password" 
+          placeholder="Enter password" 
+          value={password} 
+          required
+          onChange={e => setPassword(e.target.value)} 
+          />
         <Form.Control.Feedback type="invalid">
           Please enter a valid password
         </Form.Control.Feedback>

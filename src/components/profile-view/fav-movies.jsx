@@ -3,25 +3,27 @@
 // Modules
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import axios from 'axios'
 
 // Stylings
 import './profile-view.scss';
 import Button from 'react-bootstrap/Button';
-import {Row, Col, Container, Form, Figure, Card } from 'react-bootstrap';
+import {Row, Col, Container, Form, Figure } from 'react-bootstrap';
 
 
-function FavMovieView({ favoriteMovieList, movies }) { // both parameters can be used as state or props
-// Other way?
-
-  
-
+export function FaveMovies({ favoriteMovieList }) {
+  const removeFav = (id) => {
+    let token = localStorage.getItem('token');
+    let username = localStorage.getUser('user');
+    e.preventDefault();
+    axios.delete(`https://evflixapp.herokuapp.com/users/${username}/movies/${id}`,
+    { headers: Authorization: `Bearer ${token}`},
+    )
+  }
 
   return (
-      <Card>
-        <Card.Body>
-           <Row>
+      <>
+        <Row className="favorite-movies">
           <Col xs={12}>
             <h4>Favorite Movies</h4>
           </Col>
@@ -44,18 +46,16 @@ function FavMovieView({ favoriteMovieList, movies }) { // both parameters can be
                           </Figure.Caption>
                           </Link>
                       </Figure>
-                      <Button variant="secondary" value={movie._id} onClick={(e)=> {
-                      e.preventDefault();
-                     removeFavoriteMovie(movie)}}>
-                      Remove from List
+                      <Button variant="secondary" value={movie._id} onClick={()=> removeFavoriteMovie(movie._id)
+                     }>
+                      Remove
                       </Button>
                   </Col>
                 );
               } 
             })}
         </Row> 
-        </Card.Body>
-      </Card>
+      </>
           )
         }
-export default FavMovieView
+

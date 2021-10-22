@@ -10,7 +10,7 @@ import UpdateUser from './update-user';
 
 // Stylings
 import './profile-view.scss';
-import { Row, Col, Button, Form, Card } from 'react-bootstrap';
+import { Row, Container, Col, Button, Form, Card } from 'react-bootstrap';
 
 
 export class ProfileView extends React.Component {
@@ -131,7 +131,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.delete(`https://evflixapp.com/users/${username}/movies/${movie._id}`,
+    axios.delete(`https://evflixapp.herokuapp.com/users/${username}/movies/${movie._id}`,
     { headers: { Authorization: `Bearer ${token}` },
     })
     .then(() =>{
@@ -145,15 +145,34 @@ export class ProfileView extends React.Component {
    // RENDER THIS..
   render(){
       return (
-        <>
-        <UserInfo name={this.state.Username} email={this.state.Email} birthday={this.state.Birthday}/>
-        <FavMovieView favoriteMovieList={this.state.FavoriteMovies} movies={this.props.movies}/>
-        <UpdateUser tempEmail={this.state.tempEmail} tempPassword={this.state.tempPassword} tempUsername={this.state.tempUsername} user={this.state.user}/>
+        <Container>
+        <Row>
+          <Col xs={12} sm={4}>
+            <Card>
+              <Card.Body>
+                <UserInfo name={this.state.Username} email={this.state.Email} birthday={this.state.Birthday}/>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col xs={12} sm={8}>
+            <Card>
+              <Card.Body>
+                <UpdateUser tempEmail={this.state.tempEmail} tempPassword={this.state.tempPassword} tempUsername={this.state.tempUsername} user={this.state.user}
+              handleUpdate={this.handleUpdate}/>
+              </Card.Body>
+            </Card>
+          </Col>
+       </Row>
+        <FavMovieView favoriteMovieList={this.state.FavoriteMovies} movies={this.props.movies} removeFav={this.removeFavoriteMovie}/>
+        
+
 
     {/* <div className="logout-button">
       <Button variant="link" onClick={()=> { this.onLoggedOut() }}>Logout</Button>
     </div> */}
-     </>
+
+     </Container>
     )
   }}
 

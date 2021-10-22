@@ -1,3 +1,17 @@
 .label {
   font-weight: bold;
 }
+
+.fav-movie {
+  margin-bottom: 15px;
+  figure {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis; /* prevents wrapping and all of the titles (captions) will 
+    have the same height no matter how short or long it is*/
+    white-space: nowrap;
+    img {
+      height: 400px;
+    }
+  }
+}

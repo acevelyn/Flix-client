@@ -7,9 +7,9 @@ function UserInfo({ name, email, birthday }) {
   return (
     <>
     <div className="user-info">
-      <h2>Profile Info</h2>
+      <h2>Your Info</h2>
         <div className="username-info">
-          <span className="label">User: </span>
+          <span className="label">Username: </span>
           <span className="value">{name}</span>
         </div>
         <div className="email-info">
