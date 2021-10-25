@@ -9,53 +9,51 @@ import axios from 'axios'
 // Stylings
 import './profile-view.scss';
 import Button from 'react-bootstrap/Button';
-import {Row, Col, Container, Form, Figure, Card } from 'react-bootstrap';
+import { Row, Col, Container, Form, Figure, Card } from 'react-bootstrap';
 
 
-function FavMovieView({ favoriteMovieList, movies }) { // both parameters can be used as state or props
-// Other way?
-
-  
-
+function FavMovieView({ favoriteMovieList, movies, removeFav }) { // both parameters can be used as state or props
+  // Other way?
 
   return (
-      <Card>
-        <Card.Body>
-           <Row>
+    <Card>
+      <Card.Body>
+        <Row>
           <Col xs={12}>
             <h4>Favorite Movies</h4>
           </Col>
-        </Row> 
+        </Row>
 
         <Row>
-          {favoriteMovieList.length > 0 && 
-              movies.map((movie) => {
-                if(movie._id === favoriteMovieList.find((favMovie)=> favMovie === movie._id)){
+          {favoriteMovieList.length > 0 &&
+            movies.map((movie) => {
+              if (movie._id === favoriteMovieList.find((favMovie) => favMovie === movie._id)) {
                 return (
                   <Col xs={12} md={6} lg={3} key={movie._id} className="fav-movie">
-                      <Figure>
-                        <Link to={`/movies/${movie._id}`}>
-                          <Figure.Image
-                            src={movie.ImagePath}
-                            alt={movie.Title}
-                          />
-                          <Figure.Caption>
-                            {movie.Title}
-                          </Figure.Caption>
-                          </Link>
-                      </Figure>
-                      <Button variant="secondary" value={movie._id} onClick={(e)=> {
+                    <Figure>
+                      <Link to={`/movies/${movie._id}`}>
+                        <Figure.Image
+                          src={movie.ImagePath}
+                          alt={movie.Title}
+                        />
+                        <Figure.Caption>
+                          {movie.Title}
+                        </Figure.Caption>
+                      </Link>
+                    </Figure>
+                    <Button variant="secondary" value={movie._id} onClick={(e) => {
                       e.preventDefault();
-                     removeFavoriteMovie(movie)}}>
+                      removeFav(movie)
+                    }}>
                       Remove from List
-                      </Button>
+                    </Button>
                   </Col>
                 );
-              } 
+              }
             })}
-        </Row> 
-        </Card.Body>
-      </Card>
-          )
-        }
+        </Row>
+      </Card.Body>
+    </Card>
+  )
+}
 export default FavMovieView

@@ -3,7 +3,6 @@
 // Modules
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import UserInfo from './user-info';
 import FavMovieView from './favorite-movies';
 import UpdateUser from './update-user';
@@ -121,6 +120,7 @@ export class ProfileView extends React.Component {
           user: null  // is this correct? user is not a state?
         })
         alert('Account has been deleted')
+        window.location.pathname = "/";
       })
       .catch((err) => {
         console.log('your error is ' + err);
