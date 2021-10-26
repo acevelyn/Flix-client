@@ -57,7 +57,7 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-// Get All Users 
+  // Get All Users 
   // getUsers(token) {
   //   axios.post('https://evflixapp.herokuapp.com/users', {
   //     headers: { Authorization: `Bearer ${token}` }
@@ -104,18 +104,18 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-    
-             {/* <NavbarView user={user} /> */}
-            <Link to={'/'}>
-              <Button variant="link">Home</Button>
-            </Link>
 
-            <Link to={`/users/${user}`}>
-              <Button variant="link">Profile</Button>
-            </Link>
+        {/* <NavbarView user={user} /> */}
+        <Link to={'/'}>
+          <Button variant="link">Home</Button>
+        </Link>
 
-              {/* Log Out Button */}
-          <Button variant="link" onClick={()=> { this.onLoggedOut() }}>Logout</Button>
+        <Link to={`/users/${user}`}>
+          <Button variant="link">Profile</Button>
+        </Link>
+
+        {/* Log Out Button */}
+        <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
 
         <Row className="main-view justify-content-md-center">
           {/* Root */}
@@ -131,44 +131,44 @@ export class MainView extends React.Component {
             ))
           }} />
 
-           {/* Register */}
+          {/* Register */}
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />
             return <Col>
               <RegistrationView />
             </Col>
-          }}/>
+          }} />
 
-          
+
           {/* <Route path="/profile" render={() => {
             if (!user) return <Col>
-              <ProfileView />
+              <ProfileView history={history} movies={movies} />
             </Col>
           }} /> */}
-          
-           <Route path="/users/:username" render={(history) => {
-             if (!user) return <Col>
+
+          <Route path="/users/:username" render={(history) => {
+            if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
-             return <ProfileView history={history} movies={movies}/>
-              }} />
+            return <ProfileView history={history} movies={movies} /> // should I add removeFavoriteMovies={this.removeFavoriteMovies}
+          }} />
 
 
-           {/* Movie by Movie Title */}
+          {/* Movie by Movie Title */}
           <Route path="/movies/:movieId" render={({ match, history }) => {
-             if (!user) return <Col>
+            if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
-             if (movies.length === 0) return <div className="main-view" />;
+            if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
-           {/* Genre by Genre Name */}
+          {/* Genre by Genre Name */}
           <Route path="/genres/:name" render={({ match, history }) => {
-             if (!user) return <Col>
+            if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
@@ -179,12 +179,12 @@ export class MainView extends React.Component {
 
           {/* Director by Director Name */}
           <Route path="/directors/:name" render={({ match, history }) => {
-             if (!user) return <Col>
+            if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={()=> history.goBack()}/>
+              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
             </Col>
           }
           } />

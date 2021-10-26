@@ -2,14 +2,12 @@
 
 // Modules
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 // Stylings
 import { Form, Button } from 'react-bootstrap';
 
-
-
-function UpdateUser({ setUsername, setPassword, setEmail, user }) {
+function UpdateUser({ setUsername, setPassword, setEmail, handleUpdate, handleDeregister,
+  user }) {
   return (
     <Form>
       <h2 className="update-title">Update Account Info</h2>
@@ -75,4 +73,7 @@ function UpdateUser({ setUsername, setPassword, setEmail, user }) {
   )
 
 }
+
+
+
 export default UpdateUser
