@@ -12,9 +12,7 @@ import Button from 'react-bootstrap/Button';
 import { Row, Col, Container, Form, Figure, Card } from 'react-bootstrap';
 
 
-function FavMovieView({ favoriteMovieList, movies, removeFav }) { // both parameters can be used as state or props
-  // Other way?
-
+function FavMovieView({ favoriteMovieList, movies, removeFavoriteMovie }) {
   return (
     <Card>
       <Card.Body>
@@ -25,7 +23,7 @@ function FavMovieView({ favoriteMovieList, movies, removeFav }) { // both parame
         </Row>
 
         <Row>
-          {favoriteMovieList.length > 0 &&
+          {favoriteMovieList.length > 0 &&  // assign favoriteMovieList to a movies.filter(movies) in profieview
             movies.map((movie) => {
               if (movie._id === favoriteMovieList.find((favMovie) => favMovie === movie._id)) {
                 return (
@@ -41,9 +39,8 @@ function FavMovieView({ favoriteMovieList, movies, removeFav }) { // both parame
                         </Figure.Caption>
                       </Link>
                     </Figure>
-                    <Button variant="secondary" value={movie._id} onClick={(e) => {
-                      e.preventDefault();
-                      removeFav(movie)
+                    <Button variant="secondary" value={movie._id} onClick={() => {
+                      removeFavoriteMovie(movie._id)
                     }}>
                       Remove from List
                     </Button>
@@ -56,4 +53,11 @@ function FavMovieView({ favoriteMovieList, movies, removeFav }) { // both parame
     </Card>
   )
 }
+
+FavMovieView.PropTypes = {
+  // favoriteMovieList: PropTypes.obj,...
+  // movies: PropTypes.string,
+  removeFav: PropTypes.func,
+}
+
 export default FavMovieView

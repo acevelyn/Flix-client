@@ -128,12 +128,11 @@ export class ProfileView extends React.Component {
   }
 
   // Remove A Favorite Movie
-  removeFavoriteMovie(_id) {
-
+  removeFavoriteMovie(id) {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.delete(`https://evflixapp.herokuapp.com/users/${username}/movies/${_id}`,
+    axios.delete(`https://evflixapp.herokuapp.com/users/${username}/movies/${id}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -162,12 +161,12 @@ export class ProfileView extends React.Component {
             <Card>
               <Card.Body>
                 <UpdateUser setUsername={this.setUsername} setPassword={this.setPassword} setEmail={this.setEmail} user={this.state.user}
-                  handleUpdate={this.handleUpdate} se />
+                  handleUpdate={this.handleUpdate} handleDeregister={this.handleDeregister} />
               </Card.Body>
             </Card>
           </Col>
         </Row>
-        <FavMovieView favoriteMovieList={this.state.FavoriteMovies} movies={this.props.movies} removeFav={this.removeFavoriteMovie} />
+        <FavMovieView favoriteMovieList={this.state.FavoriteMovies} movies={this.props.movies} removeFavoriteMovie={this.removeFavoriteMovie} />
 
 
 
