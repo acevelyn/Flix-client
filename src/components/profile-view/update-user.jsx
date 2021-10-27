@@ -6,8 +6,36 @@ import React from 'react';
 // Stylings
 import { Form, Button } from 'react-bootstrap';
 
-function UpdateUser({ setUsername, setPassword, setEmail, handleUpdate, handleDeregister,
-  user }) {
+export function UpdateUser({
+  handleDeregister,
+  handleUser,
+  user
+}) {
+  const [username, setUsername] = useState(user.Username);
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(user.Email);
+
+
+  const handleUpdate = () => {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+
+
+    axios.put(
+      `https://evflixapp.herokuapp.com/users/${user}`, {
+      Username: username,
+      Password: password,
+      Email: email
+    },
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      }).then(response => {
+        handleUser(response.data);
+      })
+      .catch(e => {
+        console.log('Could NOT do update, Error:' + e)
+      });
+  };
   return (
     <Form>
       <h2 className="update-title">Update Account Info</h2>

@@ -22963,7 +22963,8 @@ class MainView extends _reactDefault.default.Component {
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_profileView.ProfileView, {
                                     history: history,
                                     movies: movies
-                                }));
+                                }) // should I add removeFavoriteMovies={this.removeFavoriteMovies}
+                                );
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",

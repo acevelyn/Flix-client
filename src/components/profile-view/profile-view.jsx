@@ -84,24 +84,24 @@ export class ProfileView extends React.Component {
           // Birthday: response.data.Birthday
         });
         localStorage.setItem('user', response.data.Username)
-        alert('Account has been updated')
-        window.open(`/users/${username}`, '_self');
+        // alert('Account has been updated')
+        // window.open(`/users/${username}`, '_self');
       })
       .catch((error) => {
         console.log(error)
       });
   }
-  setUsername(username) {
-    this.setState({ tempUsername: username });
-  }
+  // setUsername(username) {
+  //   this.setState({ tempUsername: username });
+  // }
 
-  setPassword(password) {
-    this.setState({ tempPassword: password });
-  }
+  // setPassword(password) {
+  //   this.setState({ tempPassword: password });
+  // }
 
-  setEmail(email) {
-    this.setState({ tempEmail: email });
-  }
+  // setEmail(email) {
+  //   this.setState({ tempEmail: email });
+  // }
 
 
   // Deregister User
@@ -152,7 +152,10 @@ export class ProfileView extends React.Component {
           <Col xs={12} sm={4}>
             <Card>
               <Card.Body>
-                <UserInfo name={this.state.Username} email={this.state.Email} birthday={this.state.Birthday} />
+                <UserInfo
+                  name={this.state.Username}
+                  email={this.state.Email}
+                  birthday={this.state.Birthday} />
               </Card.Body>
             </Card>
           </Col>
@@ -160,8 +163,18 @@ export class ProfileView extends React.Component {
           <Col xs={12} sm={8}>
             <Card>
               <Card.Body>
-                <UpdateUser setUsername={this.setUsername} setPassword={this.setPassword} setEmail={this.setEmail} user={this.state.user}
-                  handleUpdate={this.handleUpdate} handleDeregister={this.handleDeregister} />
+                <UpdateUser
+                  user={{
+                    Username: this.state.Username,
+                    Email: this.state.Email
+                  }}
+                  handleUser={(user) => {
+                    this.setState(user);
+                    if (user.Username && this.state.Username !== user.Username) {
+                      localStorage.setItem('user', user.Username);
+                    }
+                  }}
+                  handleDeregister={this.handleDeregister} />
               </Card.Body>
             </Card>
           </Col>
