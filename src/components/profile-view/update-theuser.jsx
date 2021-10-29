@@ -1,41 +1,46 @@
-// FUNCTION COMPONENT
+// UPDATE USER ATTEMPT 2
 
-// Modules
-import React from 'react';
+
+import React, { useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 
 // Stylings
-import { Form, Button } from 'react-bootstrap';
-
-export function UpdateUser({
-  handleDeregister,
-  handleUser,
-  user
-}) {
-  const [username, setUsername] = useState(user.Username);
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState(user.Email);
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 
-  const handleUpdate = () => {
+export function UpdateTheUser(props) {
+  const [newUsername, setUsername] = useState('');
+  const [newPassword, setPassword] = useState('');
+  const [newEmail, setEmail] = useState('');
+
+
+  const handleUpdate = (event) => {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
-
+    event.preventDefault();
 
     axios.put(
       `https://evflixapp.herokuapp.com/users/${user}`, {
-      Username: username,
-      Password: password,
-      Email: email
+      Username: newUsername,
+      Password: newPassword,
+      Email: newEmail
     },
       {
         headers: { Authorization: `Bearer ${token}` }
       }).then(response => {
-        handleUser(response.data);
+        setUsername({ Username: response.data.Username })
+        setPassword({ Password: response.data.Password })
+        setEmail({ Email: response.data.Email })
       })
       .catch(e => {
         console.log('Could NOT do update, Error:' + e)
       });
   };
+
   return (
     <Form>
       <h2 className="update-title">Update Account Info</h2>
@@ -69,39 +74,14 @@ export function UpdateUser({
           placeholder="Enter New Email"
         />
       </Form.Group>
-
-      {/* Submit Button */}
-      <Button
-        variant="primary"
-        size="md"
-        type="submit"
-        onClick={(e) => {
-          e.preventDefault();
-          handleUpdate(e);
-        }
-        }>
-        Submit
-      </Button>
-
-      {/* DELETE ACCOUNT */}
-      <div className="other-options">
-        <br />
-        <h4>Delete Account</h4>
-
-        <Button variant="danger" size="sm" type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            handleDeregister(user);
-          }}>Deregister
-        </Button>
-        <br />
-      </div>
-
     </Form>
-  )
-
+  );
 }
 
-
-
-export default UpdateUser
+LoginView.proptypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }),
+  onLoggedIn: PropTypes.func.isRequired
+};

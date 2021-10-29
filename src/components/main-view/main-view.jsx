@@ -11,7 +11,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
-import { NewProfileView } from '../profile-view/newprofile-view';
+import { ProfileView } from '../profile-view/profile-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 
 // Styling
@@ -58,21 +58,21 @@ export class MainView extends React.Component {
   }
 
   // Get All Users 
-  getUsers(token) {
-    axios.post('https://evflixapp.herokuapp.com/users', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        // Assign the result to the state
-        this.setState({
-          user: response.data  // USERS?
-        });
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  // getUsers(token) {
+  //   axios.post('https://evflixapp.herokuapp.com/users', {
+  //     headers: { Authorization: `Bearer ${token}` }
+  //   })
+  //     .then(response => {
+  //       // Assign the result to the state
+  //       this.setState({
+  //         user: response.data
+  //       });
+  //       console.log(response)
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
 
   // Get All Movies
   getMovies(token) {
@@ -97,13 +97,6 @@ export class MainView extends React.Component {
       user: null
     })
   }
-
-  onRegister(register) {
-    this.setState({
-      register: register
-    });
-  }
-
 
   render() {
     const { movies, user } = this.state;
@@ -147,18 +140,18 @@ export class MainView extends React.Component {
           }} />
 
 
-          <Route path="/profile" render={() => {
+          {/* <Route path="/profile" render={() => {
             if (!user) return <Col>
-              <NewProfileView />
+              <ProfileView history={history} movies={movies} />
             </Col>
-          }} />
+          }} /> */}
 
           <Route path="/users/:username" render={(history) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
-            return <NewProfileView history={history} movies={movies} /> // should I add removeFavoriteMovies={this.removeFavoriteMovies}
+            return <ProfileView history={history} movies={movies} /> // should I add removeFavoriteMovies={this.removeFavoriteMovies}
           }} />
 
 
@@ -199,7 +192,4 @@ export class MainView extends React.Component {
       </Router>
     );
   }
-};
-
-export default MainView
-
+}
