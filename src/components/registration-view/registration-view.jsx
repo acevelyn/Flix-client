@@ -32,7 +32,7 @@ export function RegistrationView(props) {
       Username: username,
       Password: password,
       Email: email,
-      Birthdate: birthdate
+      Birthday: birthdate
     })
       .then(response => {
         const data = response.data;
