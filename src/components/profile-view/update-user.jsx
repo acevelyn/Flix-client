@@ -2,6 +2,7 @@
 
 // Modules
 import React, { useState } from 'react';
+import axios from 'axios';
 
 // Stylings
 import { Form, Button } from 'react-bootstrap';
@@ -43,7 +44,7 @@ export function UpdateUser({
         <Form.Label>Username:</Form.Label>
         <Form.Control
           type="text"
-          // defaultValue={user.Username} HOW CAN I SET THE DEFAULT VALUE??
+          defaultValue={user.Username}
           onChange={e => { setUsername(e.target.value) }}
           required
           placeholder="Enter New Username"
@@ -54,7 +55,6 @@ export function UpdateUser({
         <Form.Label>Password:</Form.Label>
         <Form.Control
           type="password"
-          defaultValue=''
           onChange={e => { setPassword(e.target.value) }}
           required
           minLength="8"
@@ -65,6 +65,7 @@ export function UpdateUser({
         <Form.Label>Email:</Form.Label>
         <Form.Control
           type="text"
+          defaultValue={user.Email}
           onChange={e => setEmail(e.target.value)}
           placeholder="Enter New Email"
         />

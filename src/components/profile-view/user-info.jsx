@@ -6,8 +6,8 @@ import React from 'react';
 function UserInfo({ name, email, birthday }) {
   return (
     <>
-    <div className="user-info">
-      <h2>Your Info</h2>
+      <div className="user-info">
+        <h2>Your Info</h2>
         <div className="username-info">
           <span className="label">Username: </span>
           <span className="value">{name}</span>
@@ -20,7 +20,7 @@ function UserInfo({ name, email, birthday }) {
           <span className="label">Birthday: </span>
           <span className="value">{birthday}</span>
         </div>
-    </div>
+      </div>
     </>
   )
 }
@@ -31,7 +31,7 @@ export default UserInfo
 
 // CLASS COMPONENT STYLE
 // export class UserInfo extends React.Component {
- 
+
 //   render() {
 //     const { user } = this.props;
 //     return (
@@ -55,4 +55,3 @@ export default UserInfo
 // }
 
 
- 
