@@ -3,7 +3,7 @@
 // Modules
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import axios from 'axios'
 
 // Stylings
@@ -54,10 +54,10 @@ function FavMovieView({ favoriteMovieList, movies, removeFavoriteMovie }) {
   )
 }
 
-// FavMovieView.PropTypes = {
-//   // favoriteMovieList: PropTypes.obj,...
-//   // movies: PropTypes.string,
-//   removeFav: PropTypes.func,
-// }
+FavMovieView.PropTypes = {
+  // favoriteMovieList: PropTypes.obj,...
+  // movies: PropTypes.string,
+  removeFav: PropTypes.func,
+}
 
 export default FavMovieView
