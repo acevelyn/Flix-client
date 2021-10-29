@@ -1,107 +1,194 @@
-// FUNCTION COMPONENT
-
-// Modules
 import React from 'react';
-
-// Stylings
-import { Form, Button } from 'react-bootstrap';
-
-export function UpdateUser({
-  handleDeregister,
-  handleUser,
-  user
-}) {
-  const [username, setUsername] = useState(user.Username);
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState(user.Email);
+import axios from 'axios';
 
 
-  const handleUpdate = () => {
+export class UpdateUser extends React.Component {
+  state = {
+    username: '',
+    password: '',
+    email: '',
+  }
+
+  handleUpdate = event => {
     const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('user')
+    event.preventDefault();
 
+    const userInfo = {
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email
+    }
 
-    axios.put(
-      `https://evflixapp.herokuapp.com/users/${user}`, {
-      Username: username,
-      Password: password,
-      Email: email
-    },
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      }).then(response => {
-        handleUser(response.data);
+    axios.put(`https://evflixapp.herokuapp.com/users/${user}`, { userInfo },
+      { headers: { Authorization: `Bearer ${token}` } }
+    ).then((response) => {
+      console.log(response);
+      console.log(response.data)
+      this.setState({
+        Username: response.data.Username,
+        Password: response.data.Password,
+        Email: response.data.Email
       })
-      .catch(e => {
-        console.log('Could NOT do update, Error:' + e)
-      });
-  };
-  return (
-    <Form>
-      <h2 className="update-title">Update Account Info</h2>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control
-          type="text"
-          // defaultValue={user.Username} HOW CAN I SET THE DEFAULT VALUE??
-          onChange={e => { setUsername(e.target.value) }}
-          required
-          placeholder="Enter New Username"
-        />
-      </Form.Group>
+        .catch((err) => {
+          console.log(err);
+        });
+    })
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control
-          type="password"
-          defaultValue=''
-          onChange={e => { setPassword(e.target.value) }}
-          required
-          minLength="8"
-          placeholder="New Password Must be at least 8 Characters" />
-      </Form.Group>
+    setUsername = e => {
+      e.preventDefault();
+      this.setState({ username: e.target.value })
+    }
 
-      <Form.Group controlId="formEmail">
-        <Form.Label>Email:</Form.Label>
-        <Form.Control
-          type="text"
-          onChange={e => setEmail(e.target.value)}
-          placeholder="Enter New Email"
-        />
-      </Form.Group>
+    setPassword = e => {
+      e.preventDefault();
+      this.setState({ password: e.target.value })
+    }
 
-      {/* Submit Button */}
-      <Button
-        variant="primary"
-        size="md"
-        type="submit"
-        onClick={(e) => {
-          e.preventDefault();
-          handleUpdate(e);
-        }
-        }>
-        Submit
-      </Button>
+    setEmail = e => {
+      e.preventDefault();
+      this.setState({ email: e.target.value })
+    }
 
-      {/* DELETE ACCOUNT */}
-      <div className="other-options">
-        <br />
-        <h4>Delete Account</h4>
 
-        <Button variant="danger" size="sm" type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            handleDeregister(user);
-          }}>Deregister
-        </Button>
-        <br />
-      </div>
-
-    </Form>
-  )
-
-}
+  }
+  render() {
+    return (
+      <form onSubmit={this.handleUpdate}>
+        <label>New Username:</label>
+        <input type="text" name="Username" onChange={this.setUsername}></input>
+        <label>New Password:</label>
+        <input type="password" name="Password" onChange={this.setPassword}></input>
+        <label>New Password:</label>
+        <input type="text" name="Email" onChange={this.setEmail}></input>
+        <button type="submit">Add</button>
+      </form>
+    )
+  }
+} // end of component 
 
 
 
-export default UpdateUser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  OLDER FUNCTION COMPONENT
+
+// // Modules
+// import React, { useState } from 'react';
+// import axios from 'axios';
+
+// // Stylings
+// import { Form, Button } from 'react-bootstrap';
+
+// export function UpdateUser({
+//   handleDeregister,
+//   handleUser,
+//   user
+// }) {
+//   const [username, setUsername] = useState(user.Username);
+//   const [password, setPassword] = useState('');
+//   const [email, setEmail] = useState(user.Email);
+
+
+//   const handleUpdate = () => {
+//     const token = localStorage.getItem('token');
+//     const user = localStorage.getItem('user');
+
+
+//     axios.put(
+//       `https://evflixapp.herokuapp.com/users/${user}`, {
+//       Username: username,
+//       Password: password,
+//       Email: email
+//     },
+//       {
+//         headers: { Authorization: `Bearer ${token}` }
+//       }).then(response => {
+//         handleUser(response.data);
+//       })
+//       .catch(e => {
+//         console.log('Could NOT do update, Error:' + e)
+//       });
+//   };
+//   return (
+//     <Form>
+//       <h2 className="update-title">Update Account Info</h2>
+//       <Form.Group controlId="formUsername">
+//         <Form.Label>Username:</Form.Label>
+//         <Form.Control
+//           type="text"
+//           // defaultValue={user.Username} HOW CAN I SET THE DEFAULT VALUE??
+//           onChange={e => { setUsername(e.target.value) }}
+//           required
+//           placeholder="Enter New Username"
+//         />
+//       </Form.Group>
+
+//       <Form.Group controlId="formPassword">
+//         <Form.Label>Password:</Form.Label>
+//         <Form.Control
+//           type="password"
+//           defaultValue=''
+//           onChange={e => { setPassword(e.target.value) }}
+//           required
+//           minLength="8"
+//           placeholder="New Password Must be at least 8 Characters" />
+//       </Form.Group>
+
+//       <Form.Group controlId="formEmail">
+//         <Form.Label>Email:</Form.Label>
+//         <Form.Control
+//           type="text"
+//           onChange={e => setEmail(e.target.value)}
+//           placeholder="Enter New Email"
+//         />
+//       </Form.Group>
+
+//       {/* Submit Button */}
+//       <Button
+//         variant="primary"
+//         size="md"
+//         type="submit"
+//         onClick={(e) => {
+//           e.preventDefault();
+//           handleUpdate(e);
+//         }
+//         }>
+//         Submit
+//       </Button>
+
+//       {/* DELETE ACCOUNT */}
+//       <div className="other-options">
+//         <br />
+//         <h4>Delete Account</h4>
+
+//         <Button variant="danger" size="sm" type="submit"
+//           onClick={(e) => {
+//             e.preventDefault();
+//             handleDeregister(user);
+//           }}>Deregister
+//         </Button>
+//         <br />
+//       </div>
+
+//     </Form>
+//   )
+
+// }
+
+
+
+// export default UpdateUser

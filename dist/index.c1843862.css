@@ -8,6 +8,7 @@ span {
   font-weight: 300px;
 }
 
+
 .label {
   font-weight: bold;
 }
@@ -26,7 +27,6 @@ span {
 .fav-movie figure img {
   height: 400px;
 }
-
 .my-flix {
   color: steelblue;
 }

@@ -22,9 +22,6 @@ export class ProfileView extends React.Component {
       Birthday: null,
       FavoriteMovies: [],
       validated: null,
-      tempUsername: '',
-      tempPassword: '',
-      tempEmail: ''
     };
   }
 
@@ -47,7 +44,6 @@ export class ProfileView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response);
         this.setState({
           Username: response.data.Username,
           Email: response.data.Email,
@@ -61,7 +57,9 @@ export class ProfileView extends React.Component {
   }
 
   // Update User Info / PUT Request 1
-  handleUpdate(newUsername, newPassword, newEmail) {
+  handleUser(e, newUsername, newPassword, newEmail) {
+    e.preventDefault();
+
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
@@ -136,8 +134,9 @@ export class ProfileView extends React.Component {
       {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => {
-        console.log('Movie was removed')
+      .then(() => {
+        alert('Movie was removed');
+        this.componentDidMount();
       })
       .catch((error) => {
         console.log(error);
