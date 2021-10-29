@@ -1,7 +1,7 @@
 // FUNCTION COMPONENT
 
 // Modules
-import React from 'react';
+import React, { useState } from 'react';
 
 // Stylings
 import { Form, Button } from 'react-bootstrap';
