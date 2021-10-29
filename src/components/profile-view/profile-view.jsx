@@ -61,7 +61,8 @@ export class ProfileView extends React.Component {
   }
 
   // Update User Info / PUT Request 1
-  handleUpdate(newUsername, newPassword, newEmail) {
+  handleUser(newUsername, newPassword, newEmail) {
+    // handleUser(user) { user: user}
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 

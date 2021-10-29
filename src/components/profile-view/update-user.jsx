@@ -1,7 +1,8 @@
 // FUNCTION COMPONENT
 
 // Modules
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 // Stylings
 import { Form, Button } from 'react-bootstrap';
@@ -15,18 +16,23 @@ export function UpdateUser({
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState(user.Email);
 
+  console.log("RENDER UPDATE USER", user, user.Username, user.Email)
+  if (!user.Username) return <div>Loading..</div>;
 
-  const handleUpdate = () => {
+  const handleUpdate = (event) => {
+    event.preventDefault();
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
 
+    console.log("UPDATE", username, password, email);
 
-    axios.put(
-      `https://evflixapp.herokuapp.com/users/${user}`, {
-      Username: username,
-      Password: password,
-      Email: email
-    },
+    return axios.put(
+      `https://evflixapp.herokuapp.com/users/${user}`,
+      {
+        Username: username,
+        Password: password,
+        Email: email
+      },
       {
         headers: { Authorization: `Bearer ${token}` }
       }).then(response => {
@@ -75,11 +81,7 @@ export function UpdateUser({
         variant="primary"
         size="md"
         type="submit"
-        onClick={(e) => {
-          e.preventDefault();
-          handleUpdate(e);
-        }
-        }>
+        onClick={handleUpdate}>
         Submit
       </Button>
 
