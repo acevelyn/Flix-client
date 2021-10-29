@@ -40667,27 +40667,21 @@ class ProfileView extends _reactDefault.default.Component {
                 Email: response.data.Email
             });
             localStorage.setItem('user', response.data.Username);
-            alert('Account has been updated');
-            window.open(`/users/${username}`, '_self');
+        // alert('Account has been updated')
+        // window.open(`/users/${username}`, '_self');
         }).catch((error)=>{
             console.log(error);
         });
     }
-    setUsername(username) {
-        this.setState({
-            tempUsername: username
-        });
-    }
-    setPassword(password) {
-        this.setState({
-            tempPassword: password
-        });
-    }
-    setEmail(email) {
-        this.setState({
-            tempEmail: email
-        });
-    }
+    // setUsername(username) {
+    //   this.setState({ tempUsername: username });
+    // }
+    // setPassword(password) {
+    //   this.setState({ tempPassword: password });
+    // }
+    // setEmail(email) {
+    //   this.setState({ tempEmail: email });
+    // }
     // Deregister User
     handleDeregister(user) {
         const token = localStorage.getItem('token');
@@ -40776,31 +40770,34 @@ class ProfileView extends _reactDefault.default.Component {
                             sm: 8,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 160
+                                lineNumber: 163
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 161
+                                    lineNumber: 164
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 162
+                                        lineNumber: 165
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
-                                        setUsername: this.setUsername,
-                                        setPassword: this.setPassword,
-                                        setEmail: this.setEmail,
-                                        user: this.state.user,
-                                        handleUpdate: this.handleUpdate,
+                                        user: {
+                                            Username: this.state.Username,
+                                            Email: this.state.Email
+                                        },
+                                        handleUser: (user)=>{
+                                            this.setState(user);
+                                            if (user.Username && this.state.Username !== user.Username) localStorage.setItem('user', user.Username);
+                                        },
                                         handleDeregister: this.handleDeregister,
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 163
+                                            lineNumber: 166
                                         },
                                         __self: this
                                     })
@@ -40815,7 +40812,7 @@ class ProfileView extends _reactDefault.default.Component {
                     removeFavoriteMovie: this.removeFavoriteMovie,
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 169
+                        lineNumber: 182
                     },
                     __self: this
                 })
@@ -40997,8 +40994,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+// import PropTypes from 'prop-types';
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 // Stylings
@@ -41118,11 +41114,6 @@ function FavMovieView({ favoriteMovieList , movies , removeFavoriteMovie  }) {
     }));
 }
 _c = FavMovieView;
-FavMovieView.PropTypes = {
-    // favoriteMovieList: PropTypes.obj,...
-    // movies: PropTypes.string,
-    removeFav: _propTypesDefault.default.func
-};
 exports.default = FavMovieView;
 var _c;
 $RefreshReg$(_c, "FavMovieView");
@@ -41132,7 +41123,7 @@ $RefreshReg$(_c, "FavMovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","prop-types":"2bysO","axios":"1IeuP","./profile-view.scss":"z96SM","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"z96SM":[function() {},{}],"5SVC1":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","axios":"1IeuP","./profile-view.scss":"z96SM","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"z96SM":[function() {},{}],"5SVC1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1ec0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41141,18 +41132,44 @@ $parcel$ReactRefreshHelpers$1ec0.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UpdateUser", ()=>UpdateUser
+);
 var _jsxRuntime = require("react/jsx-runtime");
 // FUNCTION COMPONENT
 // Modules
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 // Stylings
 var _reactBootstrap = require("react-bootstrap");
-function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , handleDeregister , user  }) {
+var _s = $RefreshSig$();
+function UpdateUser({ handleDeregister , handleUser , user  }) {
+    _s();
+    const [username, setUsername] = _react.useState(user.Username);
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState(user.Email);
+    const handleUpdate = ()=>{
+        const token = localStorage.getItem('token');
+        const user = localStorage.getItem('user');
+        _axiosDefault.default.put(`https://evflixapp.herokuapp.com/users/${user}`, {
+            Username: username,
+            Password: password,
+            Email: email
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            handleUser(response.data);
+        }).catch((e)=>{
+            console.log('Could NOT do update, Error:' + e);
+        });
+    };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
-            lineNumber: 12
+            lineNumber: 41
         },
         __self: this,
         children: [
@@ -41160,7 +41177,7 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                 className: "update-title",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 13
+                    lineNumber: 42
                 },
                 __self: this,
                 children: "Update Account Info"
@@ -41169,20 +41186,21 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 14
+                    lineNumber: 43
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 15
+                            lineNumber: 44
                         },
                         __self: this,
                         children: "Username:"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                         type: "text",
+                        defaultValue: user.Username,
                         // defaultValue={user.Username} HOW CAN I SET THE DEFAULT VALUE??
                         onChange: (e)=>{
                             setUsername(e.target.value);
@@ -41191,7 +41209,7 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                         placeholder: "Enter New Username",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 16
+                            lineNumber: 45
                         },
                         __self: this
                     })
@@ -41201,14 +41219,14 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 25
+                    lineNumber: 55
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 26
+                            lineNumber: 56
                         },
                         __self: this,
                         children: "Password:"
@@ -41224,7 +41242,7 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                         placeholder: "New Password Must be at least 8 Characters",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 27
+                            lineNumber: 57
                         },
                         __self: this
                     })
@@ -41234,26 +41252,27 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                 controlId: "formEmail",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 36
+                    lineNumber: 66
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 37
+                            lineNumber: 67
                         },
                         __self: this,
                         children: "Email:"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                         type: "text",
+                        defaultValue: user.Email,
                         onChange: (e)=>setEmail(e.target.value)
                         ,
                         placeholder: "Enter New Email",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 38
+                            lineNumber: 68
                         },
                         __self: this
                     })
@@ -41269,7 +41288,7 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                 },
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 46
+                    lineNumber: 77
                 },
                 __self: this,
                 children: "Submit"
@@ -41278,21 +41297,21 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                 className: "other-options",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 59
+                    lineNumber: 90
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 60
+                            lineNumber: 91
                         },
                         __self: this
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 61
+                            lineNumber: 92
                         },
                         __self: this,
                         children: "Delete Account"
@@ -41307,7 +41326,7 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                         },
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 63
+                            lineNumber: 94
                         },
                         __self: this,
                         children: "Deregister"
@@ -41315,7 +41334,7 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 69
+                            lineNumber: 100
                         },
                         __self: this
                     })
@@ -41324,6 +41343,7 @@ function UpdateUser({ setUsername , setPassword , setEmail , handleUpdate , hand
         ]
     }));
 }
+_s(UpdateUser, "k8EGvDIz9eabdnV7cvaF2VNqsOc=");
 _c = UpdateUser;
 exports.default = UpdateUser;
 var _c;
@@ -41334,7 +41354,7 @@ $RefreshReg$(_c, "UpdateUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"z96SM":[function() {},{}],"5Jwf5":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","axios":"1IeuP"}],"z96SM":[function() {},{}],"5Jwf5":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0880 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
