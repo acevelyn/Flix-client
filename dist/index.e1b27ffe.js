@@ -997,7 +997,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-dom":"afyCw","react-bootstrap/Container":"gFkXb","redux":"ifMRI","react-redux":"lT3ms","redux-devtools-extension":"fbbZr","./components/main-view/main-view":"rCT5r","./index.scss":"hlAnh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","./reducers/reducers":"dSmu3"}],"6Ds2u":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-dom":"afyCw","react-bootstrap/Container":"gFkXb","redux":"ifMRI","react-redux":"lT3ms","./reducers/reducers":"dSmu3","redux-devtools-extension":"fbbZr","./components/main-view/main-view":"rCT5r","./index.scss":"hlAnh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"6Ds2u":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -25668,7 +25668,68 @@ parcelHelpers.defineInteropFlag(exports);
 );
 var _reactDom = require("react-dom");
 
-},{"react-dom":"afyCw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fbbZr":[function(require,module,exports) {
+},{"react-dom":"afyCw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dSmu3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _redux = require("redux");
+var _actions = require("../actions/actions");
+function movies(state = [], action) {
+    switch(action.type){
+        case _actions.SET_MOVIES:
+            return action.value;
+        default:
+            return state;
+    }
+}
+function visibilityFilter(state = '', action) {
+    switch(action.type){
+        case _actions.SET_FILTER:
+            return action.value;
+        default:
+            return state;
+    }
+}
+const moviesApp = _redux.combineReducers({
+    movies,
+    visibilityFilter
+});
+exports.default = moviesApp // IF COMBINEDREDUCERS WAS NOT USED
+ // function moviesApp(state = {}, action) {
+ //   return {
+ //     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+ //     movies: movies(state.movies, action)
+ //   }
+ // }
+;
+
+},{"redux":"ifMRI","../actions/actions":"6dgbZ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6dgbZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
+);
+parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
+);
+parcelHelpers.export(exports, "setMovies", ()=>setMovies
+);
+parcelHelpers.export(exports, "setFilter", ()=>setFilter
+);
+var _propTypes = require("prop-types");
+const SET_MOVIES = 'SET_MOVIES';
+const SET_FILTER = 'SET_FILER';
+function setMovies(value) {
+    return {
+        type: SET_MOVIES,
+        value
+    };
+}
+function setFilter(value) {
+    return {
+        type: SET_FILTER,
+        value
+    };
+}
+
+},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fbbZr":[function(require,module,exports) {
 'use strict';
 var compose = require('redux').compose;
 exports.__esModule = true;
@@ -43492,67 +43553,6 @@ class NavbarView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}],"dSmu3":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _redux = require("redux");
-var _actions = require("../actions/actions");
-function movies(state = [], action) {
-    switch(action.type){
-        case _actions.SET_MOVIES:
-            return action.value;
-        default:
-            return state;
-    }
-}
-function visibilityFilter(state = '', action) {
-    switch(action.type){
-        case _actions.SET_FILTER:
-            return action.value;
-        default:
-            return state;
-    }
-}
-const moviesApp = _redux.combineReducers({
-    movies,
-    visibilityFilter
-});
-exports.default = moviesApp // IF COMBINEDREDUCERS WAS NOT USED
- // function moviesApp(state = {}, action) {
- //   return {
- //     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
- //     movies: movies(state.movies, action)
- //   }
- // }
-;
-
-},{"redux":"ifMRI","../actions/actions":"6dgbZ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6dgbZ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
-);
-parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
-);
-parcelHelpers.export(exports, "setMovies", ()=>setMovies
-);
-parcelHelpers.export(exports, "setFilter", ()=>setFilter
-);
-var _propTypes = require("prop-types");
-const SET_MOVIES = 'SET_MOVIES';
-const SET_FILTER = 'SET_FILER';
-function setMovies(value) {
-    return {
-        type: SET_MOVIES,
-        value
-    };
-}
-function setFilter(value) {
-    return {
-        type: SET_FILTER,
-        value
-    };
-}
-
-},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
 
 //# sourceMappingURL=index.e1b27ffe.js.map
