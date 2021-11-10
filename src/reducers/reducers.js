@@ -6,6 +6,7 @@ import { SET_MOVIES, SET_FILTER } from '../actions/actions';
 function movies(state = [], action) {
   switch (action.type) {
     case SET_MOVIES:
+      console.log("SET_MOVIES reducer reached");
       return action.value;
     default:
       return state;
@@ -28,13 +29,5 @@ const moviesApp = combineReducers({
   visibilityFilter
 });
 
-export default moviesApp
+export default moviesApp;
 
-// IF COMBINEDREDUCERS WAS NOT USED
-
-// function moviesApp(state = {}, action) {
-//   return {
-//     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-//     movies: movies(state.movies, action)
-//   }
-// }
