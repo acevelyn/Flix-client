@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 // Components
-import { setMovies, setUser } from '../../actions/actions';
+import { setMovies } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -62,10 +62,9 @@ class MainView extends React.Component {
   // Log In
   onLoggedIn(authData) {
     console.log(authData);
-    this.props.setUser(authData.user);
-    // this.setState({
-    //   user: authData.user.Username
-    // });
+    this.setState({
+      user: authData.user.Username
+    });
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);

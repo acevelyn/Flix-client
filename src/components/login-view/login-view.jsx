@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
-
-import { setUser } from '../../actions/actions';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -12,9 +9,7 @@ import './login-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const mapStateToProps = state => {
-  return { user: state.user }
-}
+
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -39,49 +34,45 @@ export function LoginView(props) {
 
   return (
     <>
-      <Form>
-        <h1 className="login-title">Login</h1>
-        <Form.Group controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control type="text"
-            placeholder="Enter username"
-            value={username}
-            required
-            onChange={e => setUsername(e.target.value)} />
-          <Form.Control.Feedback>
-            Please enter a valid Username
-          </Form.Control.Feedback>
-        </Form.Group>
+    <Form>
+      <h1 className="login-title">Login</h1>
+      <Form.Group controlId="formUsername">
+        <Form.Label>Username:</Form.Label>
+        <Form.Control type="text" 
+        placeholder="Enter username" 
+        value={username} 
+        required
+        onChange={e => setUsername(e.target.value)} />
+        <Form.Control.Feedback>
+          Please enter a valid Username
+        </Form.Control.Feedback>
+      </Form.Group>
 
-        <Form.Group controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            required
-            onChange={e => setPassword(e.target.value)}
+      <Form.Group controlId="formPassword">
+        <Form.Label>Password:</Form.Label>
+        <Form.Control 
+          type="password" 
+          placeholder="Enter password" 
+          value={password} 
+          required
+          onChange={e => setPassword(e.target.value)} 
           />
-          <Form.Control.Feedback type="invalid">
-            Please enter a valid password
-          </Form.Control.Feedback>
-        </Form.Group>
+        <Form.Control.Feedback type="invalid">
+          Please enter a valid password
+        </Form.Control.Feedback>
+      </Form.Group>
 
-        <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
-          Submit
-        </Button>
-
-        <Link to={'/register'}>
-          <Button variant="link">Register Now</Button>
-        </Link>
-      </Form>
+      <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
+        Submit
+      </Button>
+      
+    <Link to={'/register'}>
+     <Button variant="link">Register Now</Button>
+    </Link>
+    </Form>
     </>
   );
 }
-
-mapDispatchToProps = (dispatch) => ({
-
-})
 
 LoginView.proptypes = {
   user: PropTypes.shape({
