@@ -13,7 +13,6 @@ import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieView } from '../movie-view/movie-view';
-// import { MovieCard } from '../movie-card/movie-card';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
@@ -123,11 +122,7 @@ class MainView extends React.Component {
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
-            return
-            // <Col md={3} key={movies._id}> 
-            <MoviesList movies={movies} />;
-            // </Col>
-
+            return <MoviesList movies={movies} />;
           }} />
 
           {/* Register */}

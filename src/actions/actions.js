@@ -1,8 +1,9 @@
 import { string } from "prop-types";
 
 export const SET_MOVIES = 'SET_MOVIES';
-export const SET_FILTER = 'SET_FILER';
+export const SET_FILTER = 'SET_FILTER';
 
+// GENERAL MOVIES
 export function setMovies(value) {
   return {
     type: SET_MOVIES,
@@ -16,5 +17,9 @@ export function setFilter(value) {
     value
   };
 }
+
+
+
+
 
 
