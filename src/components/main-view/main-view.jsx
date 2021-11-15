@@ -47,8 +47,18 @@ class MainView extends React.Component {
     }
   }
 
-
-
+  // Get All Movies
+  getMovies(token) {
+    axios.get('https://evflixapp.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        this.props.setMovies(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   // Log In
   onLoggedIn(authData) {
@@ -77,20 +87,6 @@ class MainView extends React.Component {
   //       console.log(error);
   //     });
   // }
-
-  // Get All Movies
-  getMovies(token) {
-    axios.get('https://evflixapp.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        // Assign the result to the state
-        this.props.setMovies(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   onLoggedOut() {
     localStorage.removeItem('token');
