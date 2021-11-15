@@ -1,8 +1,13 @@
 // CLASS COMPONENT
 
-// Modules
+
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { setUser } from '../../actions/actions';
+
+// Views
 import UserInfo from './user-info';
 import FavMovieView from './favorite-movies';
 import UpdateUser from './update-user';
@@ -105,25 +110,25 @@ export class ProfileView extends React.Component {
 
 
   // Deregister User
-  handleDeregister(user) {
+  handleDeregister(e) {
+    e.preventDefault();
+
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
+
     axios.delete(
-      `http://exflixapp.herokuapp.com/users/${username}`,
+      `https://exflixapp.herokuapp.com/users/${username}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.setState({
-          user: null  // is this correct? user is not a state?
-        })
-        alert('Account has been deleted')
-        window.location.pathname = "/";
+        alert("Your account has been deleted");
+        window.open('/', "_self");
       })
       .catch((err) => {
-        console.log('your error is ' + err);
+        console.log(err);
       });
   }
 
@@ -146,6 +151,7 @@ export class ProfileView extends React.Component {
 
   // RENDER THIS..
   render() {
+    const { movies } = this.props;
     return (
       <Container>
         <Row>
@@ -181,6 +187,16 @@ export class ProfileView extends React.Component {
         </Row>
         <FavMovieView favoriteMovieList={this.state.FavoriteMovies} movies={this.props.movies} removeFavoriteMovie={this.removeFavoriteMovie} />
 
+        {/* DELETE ACCOUNT */}
+        <div className="other-options">
+          <br />
+          <h4>Delete Account</h4>
+
+          <Button variant="danger" size="sm"
+            onClick={(e) => this.handleDeregister(e)}>Deregister</Button>
+          <br />
+        </div>
+
 
 
         {/* <div className="logout-button">
@@ -192,6 +208,12 @@ export class ProfileView extends React.Component {
   }
 }
 
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
+  }
+}
 
-
+export default connect(mapStateToProps, { setUser })(ProfileView);
 

@@ -85,7 +85,7 @@ export function UpdateUser({
       </Button>
 
       {/* DELETE ACCOUNT */}
-      <div className="other-options">
+      {/* <div className="other-options">
         <br />
         <h4>Delete Account</h4>
 
@@ -96,7 +96,7 @@ export function UpdateUser({
           }}>Deregister
         </Button>
         <br />
-      </div>
+      </div> */}
 
     </Form>
   )
