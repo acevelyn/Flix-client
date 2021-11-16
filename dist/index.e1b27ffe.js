@@ -42840,6 +42840,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRedux = require("react-redux");
 var _actions = require("../../actions/actions");
+// import { updateUser } from '../../actions/actions';
 // Views
 var _userInfo = require("./user-info");
 var _userInfoDefault = parcelHelpers.interopDefault(_userInfo);
@@ -42959,17 +42960,18 @@ class ProfileView extends _reactDefault.default.Component {
     // RENDER THIS..
     render() {
         const { movies  } = this.props;
+        const { user  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 156
+                lineNumber: 158
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 157
+                        lineNumber: 159
                     },
                     __self: this,
                     children: [
@@ -42978,28 +42980,30 @@ class ProfileView extends _reactDefault.default.Component {
                             sm: 4,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 158
+                                lineNumber: 160
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 159
+                                    lineNumber: 161
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 160
+                                        lineNumber: 162
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_userInfoDefault.default, {
                                         name: this.state.Username,
                                         email: this.state.Email,
                                         birthday: this.state.Birthday,
+                                        // from mapState Adding the "user" state to the UserInfo component
+                                        user: user,
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 161
+                                            lineNumber: 163
                                         },
                                         __self: this
                                     })
@@ -43011,19 +43015,19 @@ class ProfileView extends _reactDefault.default.Component {
                             sm: 8,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 169
+                                lineNumber: 173
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 170
+                                    lineNumber: 174
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 171
+                                        lineNumber: 175
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
@@ -43035,10 +43039,9 @@ class ProfileView extends _reactDefault.default.Component {
                                             this.setState(user);
                                             if (user.Username && this.state.Username !== user.Username) localStorage.setItem('user', user.Username);
                                         },
-                                        handleDeregister: this.handleDeregister,
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 172
+                                            lineNumber: 176
                                         },
                                         __self: this
                                     })
@@ -43053,7 +43056,7 @@ class ProfileView extends _reactDefault.default.Component {
                     removeFavoriteMovie: this.removeFavoriteMovie,
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 188
+                        lineNumber: 191
                     },
                     __self: this
                 }),
@@ -43061,21 +43064,21 @@ class ProfileView extends _reactDefault.default.Component {
                     className: "other-options",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 191
+                        lineNumber: 194
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx("br", {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 192
+                                lineNumber: 195
                             },
                             __self: this
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 193
+                                lineNumber: 196
                             },
                             __self: this,
                             children: "Delete Account"
@@ -43087,7 +43090,7 @@ class ProfileView extends _reactDefault.default.Component {
                             ,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 195
+                                lineNumber: 198
                             },
                             __self: this,
                             children: "Deregister"
@@ -43095,7 +43098,7 @@ class ProfileView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx("br", {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 197
+                                lineNumber: 200
                             },
                             __self: this
                         })
@@ -43444,7 +43447,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 // Stylings
 var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
-function UpdateUser({ handleDeregister , handleUser , user  }) {
+function UpdateUser({ handleUser , user  }) {
     _s();
     const [username, setUsername] = _react.useState(user.Username);
     const [password, setPassword] = _react.useState('');
@@ -43469,7 +43472,7 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
-            lineNumber: 41
+            lineNumber: 40
         },
         __self: this,
         children: [
@@ -43477,7 +43480,7 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                 className: "update-title",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 42
+                    lineNumber: 41
                 },
                 __self: this,
                 children: "Update Account Info"
@@ -43486,14 +43489,14 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 43
+                    lineNumber: 42
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 44
+                            lineNumber: 43
                         },
                         __self: this,
                         children: "Username:"
@@ -43508,7 +43511,7 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                         placeholder: "Enter New Username",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 45
+                            lineNumber: 44
                         },
                         __self: this
                     })
@@ -43518,14 +43521,14 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 54
+                    lineNumber: 53
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 55
+                            lineNumber: 54
                         },
                         __self: this,
                         children: "Password:"
@@ -43540,7 +43543,7 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                         placeholder: "New Password Must be at least 8 Characters",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 56
+                            lineNumber: 55
                         },
                         __self: this
                     })
@@ -43550,14 +43553,14 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                 controlId: "formEmail",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 64
+                    lineNumber: 63
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 65
+                            lineNumber: 64
                         },
                         __self: this,
                         children: "Email:"
@@ -43570,7 +43573,7 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                         placeholder: "Enter New Email",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 66
+                            lineNumber: 65
                         },
                         __self: this
                     })
@@ -43586,7 +43589,7 @@ function UpdateUser({ handleDeregister , handleUser , user  }) {
                 },
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 75
+                    lineNumber: 74
                 },
                 __self: this,
                 children: "Submit"

@@ -8,7 +8,6 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 
 export function UpdateUser({
-  handleDeregister,
   handleUser,
   user
 }) {
@@ -83,20 +82,6 @@ export function UpdateUser({
         }>
         Submit
       </Button>
-
-      {/* DELETE ACCOUNT */}
-      {/* <div className="other-options">
-        <br />
-        <h4>Delete Account</h4>
-
-        <Button variant="danger" size="sm" type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            handleDeregister(user);
-          }}>Deregister
-        </Button>
-        <br />
-      </div> */}
 
     </Form>
   )

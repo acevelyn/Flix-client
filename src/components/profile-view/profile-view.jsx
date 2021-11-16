@@ -6,6 +6,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 import { setUser } from '../../actions/actions';
+// import { updateUser } from '../../actions/actions';
 
 // Views
 import UserInfo from './user-info';
@@ -152,6 +153,7 @@ export class ProfileView extends React.Component {
   // RENDER THIS..
   render() {
     const { movies } = this.props;
+    const { user } = this.props;
     return (
       <Container>
         <Row>
@@ -161,7 +163,9 @@ export class ProfileView extends React.Component {
                 <UserInfo
                   name={this.state.Username}
                   email={this.state.Email}
-                  birthday={this.state.Birthday} />
+                  birthday={this.state.Birthday}
+                  // from mapState Adding the "user" state to the UserInfo component
+                  user={user} />
               </Card.Body>
             </Card>
           </Col>
@@ -179,8 +183,7 @@ export class ProfileView extends React.Component {
                     if (user.Username && this.state.Username !== user.Username) {
                       localStorage.setItem('user', user.Username);
                     }
-                  }}
-                  handleDeregister={this.handleDeregister} />
+                  }} />
               </Card.Body>
             </Card>
           </Col>
