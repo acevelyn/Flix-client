@@ -25714,6 +25714,8 @@ parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
 parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
 );
+parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER
+);
 // GENERAL MOVIES
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
@@ -25722,9 +25724,12 @@ parcelHelpers.export(exports, "setFilter", ()=>setFilter
 // USER ACTIONS
 parcelHelpers.export(exports, "setUser", ()=>setUser
 );
+parcelHelpers.export(exports, "updateUser", ()=>updateUser
+);
 const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
 const SET_USER = 'SET_USER';
+const UPDATE_USER = 'UPDATE_USER';
 function setMovies(value) {
     console.log('SET_MOVIES action reached');
     return {
@@ -25743,6 +25748,13 @@ function setUser(value) {
     console.log('SET_USER action reached');
     return {
         type: SET_USER,
+        value
+    };
+}
+function updateUser(value) {
+    console.log('UPDATE_USER action reached');
+    return {
+        type: UPDATE_USER,
         value
     };
 }
