@@ -43444,6 +43444,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRedux = require("react-redux");
+var _actions = require("../../actions/actions");
 // Stylings
 var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
@@ -43472,7 +43474,7 @@ function UpdateUser({ handleUser , user  }) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
         __source: {
             fileName: "src/components/profile-view/update-user.jsx",
-            lineNumber: 40
+            lineNumber: 42
         },
         __self: this,
         children: [
@@ -43480,7 +43482,7 @@ function UpdateUser({ handleUser , user  }) {
                 className: "update-title",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 41
+                    lineNumber: 43
                 },
                 __self: this,
                 children: "Update Account Info"
@@ -43489,14 +43491,14 @@ function UpdateUser({ handleUser , user  }) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 42
+                    lineNumber: 44
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 43
+                            lineNumber: 45
                         },
                         __self: this,
                         children: "Username:"
@@ -43511,7 +43513,7 @@ function UpdateUser({ handleUser , user  }) {
                         placeholder: "Enter New Username",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 44
+                            lineNumber: 46
                         },
                         __self: this
                     })
@@ -43521,14 +43523,14 @@ function UpdateUser({ handleUser , user  }) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 53
+                    lineNumber: 55
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 54
+                            lineNumber: 56
                         },
                         __self: this,
                         children: "Password:"
@@ -43543,7 +43545,7 @@ function UpdateUser({ handleUser , user  }) {
                         placeholder: "New Password Must be at least 8 Characters",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 55
+                            lineNumber: 57
                         },
                         __self: this
                     })
@@ -43553,14 +43555,14 @@ function UpdateUser({ handleUser , user  }) {
                 controlId: "formEmail",
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 63
+                    lineNumber: 65
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 64
+                            lineNumber: 66
                         },
                         __self: this,
                         children: "Email:"
@@ -43573,7 +43575,7 @@ function UpdateUser({ handleUser , user  }) {
                         placeholder: "Enter New Email",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 65
+                            lineNumber: 67
                         },
                         __self: this
                     })
@@ -43589,7 +43591,7 @@ function UpdateUser({ handleUser , user  }) {
                 },
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 74
+                    lineNumber: 76
                 },
                 __self: this,
                 children: "Submit"
@@ -43599,7 +43601,9 @@ function UpdateUser({ handleUser , user  }) {
 }
 _s(UpdateUser, "k8EGvDIz9eabdnV7cvaF2VNqsOc=");
 _c = UpdateUser;
-exports.default = UpdateUser;
+exports.default = _reactRedux.connect(null, {
+    updateUser: _actions.updateUser
+})(UpdateUser);
 var _c;
 $RefreshReg$(_c, "UpdateUser");
 
@@ -43608,7 +43612,7 @@ $RefreshReg$(_c, "UpdateUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"z96SM":[function() {},{}],"5Jwf5":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-redux":"lT3ms","../../actions/actions":"6dgbZ"}],"z96SM":[function() {},{}],"5Jwf5":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0880 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

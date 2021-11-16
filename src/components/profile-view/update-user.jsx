@@ -3,6 +3,8 @@
 // Modules
 import React, { useState } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/actions';
 
 // Stylings
 import { Form, Button } from 'react-bootstrap';
@@ -90,4 +92,4 @@ export function UpdateUser({
 
 
 
-export default UpdateUser
+export default connect(null, { updateUser })(UpdateUser);
