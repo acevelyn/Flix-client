@@ -25690,9 +25690,18 @@ function visibilityFilter(state = '', action) {
             return state;
     }
 }
+function userInfo(state = [], action) {
+    switch(action.type){
+        case _actions.SET_USER:
+            return action.value;
+        default:
+            return state;
+    }
+}
 const moviesApp = _redux.combineReducers({
     movies,
-    visibilityFilter
+    visibilityFilter,
+    userInfo
 });
 exports.default = moviesApp;
 
@@ -30036,7 +30045,7 @@ function VisibilityFilterInput(props) {
         onChange: (e)=>props.setFilter(e.target.value)
         ,
         value: props.visibilityFilter,
-        placeholder: "Filter",
+        placeholder: "Search Movies",
         __source: {
             fileName: "src/components/visibility-filter-input/visibility-filter-input.jsx",
             lineNumber: 9
@@ -42906,7 +42915,7 @@ class ProfileView extends _reactDefault.default.Component {
         e.preventDefault();
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('user');
-        _axiosDefault.default.delete(`https://exflixapp.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.delete(`https://evflixapp.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
