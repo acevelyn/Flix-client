@@ -90,24 +90,14 @@ export class ProfileView extends React.Component {
           // Birthday: response.data.Birthday
         });
         localStorage.setItem('user', response.data.Username)
-        // alert('Account has been updated')
-        // window.open(`/users/${username}`, '_self');
+        alert('Account has been updated')
+        window.open(`/users/${username}`, '_self');
       })
       .catch((error) => {
         console.log(error)
       });
   }
-  // setUsername(username) {
-  //   this.setState({ tempUsername: username });
-  // }
 
-  // setPassword(password) {
-  //   this.setState({ tempPassword: password });
-  // }
-
-  // setEmail(email) {
-  //   this.setState({ tempEmail: email });
-  // }
 
 
   // Deregister User
@@ -144,6 +134,8 @@ export class ProfileView extends React.Component {
       })
       .then((response) => {
         console.log('Movie was removed')
+        alert('Movie was removed from Favorites')
+        window.open(`/users/${username}`, '_self');
       })
       .catch((error) => {
         console.log(error);
@@ -200,11 +192,6 @@ export class ProfileView extends React.Component {
           <br />
         </div>
 
-
-
-        {/* <div className="logout-button">
-      <Button variant="link" onClick={()=> { this.onLoggedOut() }}>Logout</Button>
-    </div> */}
 
       </Container>
     )

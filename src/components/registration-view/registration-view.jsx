@@ -103,20 +103,6 @@ export function RegistrationView(props) {
 
     </Form>
 
-
-    // OLDER WAY
-    // <Form.Group controlId="formEmail">
-    //   <Form.Label>Email:</Form.Label>
-    //   <Form.Control type="text" onChange={e => setEmail(e.target.value)} />
-    // </Form.Group>
-
-    // <Form.Group controlId="formBirthdate">
-    //   <Form.Label>Birthday:</Form.Label>
-    //   <Form.Control type="text" onChange={e => setBirthdate(e.target.value)} />
-    // </Form.Group>
-
-
-
   );
 }
 

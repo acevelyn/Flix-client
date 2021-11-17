@@ -70,22 +70,6 @@ class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  // Get All Users 
-  // getUsers(token) {
-  //   axios.post('https://evflixapp.herokuapp.com/users', {
-  //     headers: { Authorization: `Bearer ${token}` }
-  //   })
-  //     .then(response => {
-  //       // Assign the result to the state
-  //       this.setState({
-  //         user: response.data
-  //       });
-  //       console.log(response)
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }
 
   onLoggedOut() {
     localStorage.removeItem('token');
@@ -133,12 +117,6 @@ class MainView extends React.Component {
             </Col>
           }} />
 
-
-          {/* <Route path="/profile" render={() => {
-            if (!user) return <Col>
-              <ProfileView history={history} movies={movies} />
-            </Col>
-          }} /> */}
 
           <Route path="/users/:username" render={(history) => {
             if (!user) return <Col>
