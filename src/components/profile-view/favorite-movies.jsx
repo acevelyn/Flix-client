@@ -54,10 +54,10 @@ function FavMovieView({ favoriteMovieList, movies, removeFavoriteMovie }) {
   )
 }
 
-FavMovieView.PropTypes = {
+FavMovieView.propTypes = {
   // favoriteMovieList: PropTypes.obj,...
   // movies: PropTypes.string,
-  removeFav: PropTypes.func,
+  removeFavoriteMovie: PropTypes.func,
 }
 
 export default FavMovieView

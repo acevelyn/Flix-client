@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //React-Bootstrap Styling
 import Button from 'react-bootstrap/Button';
@@ -19,10 +20,18 @@ export class GenreView extends React.Component {
           <span className="label">Genre Description: </span>
           <span className="value">{genre.Description}</span>
         </div>
-        
-        <Button variant="secondary" size="sm" type="submit"onClick={() => { onBackClick(null); }}>Back</Button>
+
+        <Button variant="secondary" size="sm" type="submit" onClick={() => { onBackClick(null); }}>Back</Button>
 
       </div>
     );
   }
 }
+GenreView.propTypes = {
+  movie: PropTypes.shape({
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired
+    }).isRequired
+  })
+};

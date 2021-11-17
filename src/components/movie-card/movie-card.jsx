@@ -40,6 +40,5 @@ MovieCard.propTypees = {
       })
 
     })
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  }).isRequired
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //React-Bootstrap Styling
 import Button from 'react-bootstrap/Button';
@@ -33,3 +34,12 @@ export class DirectorView extends React.Component {
   }
 }
 
+DirectorView.propTypes = {
+  movie: PropTypes.shape({
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birth: PropTypes.number.isRequired
+    }).isRequired,
+  })
+};
