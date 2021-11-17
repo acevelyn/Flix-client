@@ -4,6 +4,7 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { setUser } from '../../actions/actions';
 // import { updateUser } from '../../actions/actions';
@@ -207,3 +208,11 @@ let mapStateToProps = state => {
 
 export default connect(mapStateToProps, { setUser })(ProfileView);
 
+ProfileView.propTypes = {
+  profile: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired
+  })
+}
