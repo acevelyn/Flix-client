@@ -29917,14 +29917,18 @@ function MoviesList(props) {
     const { movies , visibilityFilter  } = props;
     let filteredMovies = movies;
     // if the Fiter is NOT blank, have the "filteredMovies" variable equal the movies that, filter the movies to show the movie with the entered filter in lower case characters ..
-    if (visibilityFilter !== "") filteredMovies = movies.filter((m)=>m.Title.toLowerCase().includes(visibilityFilter.toLowerCase())
-    );
+    if (visibilityFilter !== '') {
+        filteredMovies = movies.filter((m)=>m.Title?.toLowerCase().includes(visibilityFilter.toLowerCase())
+        );
+        console.log(movies.Title);
+        console.log(visibilityFilter);
+    }
     // else if there is no movies show an empty main view
     if (!movies) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
         className: "main-view",
         __source: {
             fileName: "src/components/movies-list/movies-list.jsx",
-            lineNumber: 27
+            lineNumber: 28
         },
         __self: this
     }));
