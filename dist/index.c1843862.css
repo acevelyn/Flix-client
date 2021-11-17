@@ -4,34 +4,8 @@
 .register-title {
   margin: 15px 0 10px 0;
 }
-<<<<<<< Updated upstream
 
 
-=======
-span {
-  font-weight: 300px;
-}
-
-
-.label {
-  font-weight: bold;
-}
-
-.fav-movie {
-  margin-bottom: 15px;
-}
-.fav-movie figure {
-  position: relative;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* prevents wrapping and all of the titles (captions) will 
-  have the same height no matter how short or long it is*/
-  white-space: nowrap;
-}
-.fav-movie figure img {
-  height: 400px;
-}
->>>>>>> Stashed changes
 .my-flix {
   color: steelblue;
 }
