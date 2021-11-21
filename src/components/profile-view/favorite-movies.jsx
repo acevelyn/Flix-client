@@ -4,7 +4,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import axios from 'axios'
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/actions';
+
+
+
 
 // Stylings
 import './profile-view.scss';
@@ -60,4 +64,4 @@ FavMovieView.propTypes = {
   removeFavoriteMovie: PropTypes.func,
 }
 
-export default FavMovieView
+export default connect(null, { updateUser })(FavMovieView)
