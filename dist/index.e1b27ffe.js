@@ -25793,6 +25793,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRedux = require("react-redux");
 var _reactRouterDom = require("react-router-dom");
+// import { Link } from 'react-router-dom';
 // Components
 var _actions = require("../../actions/actions");
 var _moviesList = require("../movies-list/movies-list");
@@ -25804,6 +25805,7 @@ var _genreView = require("../genre-view/genre-view");
 var _directorView = require("../director-view/director-view");
 var _profileView = require("../profile-view/profile-view");
 var _navbarView = require("../navbar-view/navbar-view");
+var _navbarViewDefault = parcelHelpers.interopDefault(_navbarView);
 // Styling
 var _mainViewScss = require("./main-view.scss");
 var _row = require("react-bootstrap/Row");
@@ -25869,59 +25871,13 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_navbarView.NavbarView, {
+                /*#__PURE__*/ _jsxRuntime.jsx(_navbarViewDefault.default, {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 90
                     },
                     __self: this
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                    to: '/',
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 92
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                        variant: "link",
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 93
-                        },
-                        __self: this,
-                        children: "Home"
-                    })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                    to: `/users/${user}`,
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 96
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                        variant: "link",
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 97
-                        },
-                        __self: this,
-                        children: "Profile"
-                    })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    variant: "link",
-                    onClick: ()=>{
-                        this.onLoggedOut();
-                    },
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 101
-                    },
-                    __self: this,
-                    children: "Logout"
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
                     className: "main-view justify-content-md-center",
@@ -29897,6 +29853,7 @@ var _reactRedux = require("react-redux");
 var _visibilityFilterInput = require("../visibility-filter-input/visibility-filter-input");
 var _visibilityFilterInputDefault = parcelHelpers.interopDefault(_visibilityFilterInput);
 var _movieCard = require("../movie-card/movie-card");
+var _moviesListScss = require("./movies-list.scss");
 // assign visibilityFilter to be the current state and return that state
 const mapStateToProps = (state)=>{
     const { visibilityFilter  } = state;
@@ -29920,7 +29877,7 @@ function MoviesList(props) {
         className: "main-view",
         __source: {
             fileName: "src/components/movies-list/movies-list.jsx",
-            lineNumber: 28
+            lineNumber: 30
         },
         __self: this
     }));
@@ -29934,30 +29891,31 @@ function MoviesList(props) {
                 },
                 __source: {
                     fileName: "src/components/movies-list/movies-list.jsx",
-                    lineNumber: 32
+                    lineNumber: 34
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_visibilityFilterInputDefault.default, {
                     visibilityFilter: visibilityFilter,
                     __source: {
                         fileName: "src/components/movies-list/movies-list.jsx",
-                        lineNumber: 33
+                        lineNumber: 35
                     },
                     __self: this
                 })
             }),
             filteredMovies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                    className: "movielist-view",
                     md: 3,
                     __source: {
                         fileName: "src/components/movies-list/movies-list.jsx",
-                        lineNumber: 36
+                        lineNumber: 38
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                         movie: m,
                         __source: {
                             fileName: "src/components/movies-list/movies-list.jsx",
-                            lineNumber: 37
+                            lineNumber: 39
                         },
                         __self: this
                     })
@@ -29976,7 +29934,7 @@ $RefreshReg$(_c, "MoviesList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap/Col":"kxhZp","react-redux":"lT3ms","../visibility-filter-input/visibility-filter-input":"dyllb","../movie-card/movie-card":"04zIX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"kxhZp":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap/Col":"kxhZp","react-redux":"lT3ms","../visibility-filter-input/visibility-filter-input":"dyllb","../movie-card/movie-card":"04zIX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","./movies-list.scss":"5k3jC"}],"kxhZp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
@@ -41912,7 +41870,7 @@ Tooltip.defaultProps = defaultProps;
 Tooltip.displayName = 'Tooltip';
 exports.default = Tooltip;
 
-},{"@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","classnames":"2cVcN","react":"4mchR","prop-types-extra/lib/isRequiredForA11y":"ch0sf","./ThemeProvider":"oG7Uz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7IGV8":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","classnames":"2cVcN","react":"4mchR","prop-types-extra/lib/isRequiredForA11y":"ch0sf","./ThemeProvider":"oG7Uz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5k3jC":[function() {},{}],"7IGV8":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8f6c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41959,6 +41917,7 @@ function LoginView(props) {
     };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+            className: "login-view",
             __source: {
                 fileName: "src/components/login-view/login-view.jsx",
                 lineNumber: 40
@@ -43665,14 +43624,13 @@ $parcel$ReactRefreshHelpers$0880.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "NavbarView", ()=>NavbarView
+parcelHelpers.export(exports, "NavBarView", ()=>NavBarView
 );
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
-class NavbarView extends _reactDefault.default.Component {
+class NavBarView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
@@ -43680,7 +43638,7 @@ class NavbarView extends _reactDefault.default.Component {
     }
     onLoggedOut = ()=>{
         localStorage.clear();
-        window.open('/', '_self');
+        window.open("/", "_self");
     };
     render() {
         const { user  } = this.props;
@@ -43688,6 +43646,7 @@ class NavbarView extends _reactDefault.default.Component {
         const profile = `/users/${user}`;
         if (!user) return null;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Navbar, {
+            className: "main-nav",
             bg: "dark",
             collapseOnSelect: true,
             fixed: "top",
@@ -43695,7 +43654,7 @@ class NavbarView extends _reactDefault.default.Component {
             variant: "dark",
             __source: {
                 fileName: "src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 26
+                lineNumber: 25
             },
             __self: this,
             children: [
@@ -43703,89 +43662,67 @@ class NavbarView extends _reactDefault.default.Component {
                     "aria-controls": "basic-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar-view/navbar-view.jsx",
-                        lineNumber: 27
+                        lineNumber: 26
                     },
                     __self: this
                 }),
-                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Navbar.Collapse, {
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Collapse, {
                     id: "responsive-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar-view/navbar-view.jsx",
-                        lineNumber: 29
+                        lineNumber: 28
                     },
                     __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
-                            className: "me-auto",
-                            __source: {
-                                fileName: "src/components/navbar-view/navbar-view.jsx",
-                                lineNumber: 30
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactRouterDom.Link, {
-                                    as: _reactRouterDom.Link,
-                                    to: movies,
-                                    className: "link-text",
-                                    __source: {
-                                        fileName: "src/components/navbar-view/navbar-view.jsx",
-                                        lineNumber: 32
-                                    },
-                                    __self: this,
-                                    children: "Movies"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactRouterDom.Link, {
-                                    as: _reactRouterDom.Link,
-                                    to: profile,
-                                    className: "link-text",
-                                    __source: {
-                                        fileName: "src/components/navbar-view/navbar-view.jsx",
-                                        lineNumber: 36
-                                    },
-                                    __self: this,
-                                    children: "Profile"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav._reactRouterDom.Link, {
-                                    to: '/',
-                                    onClick: this.onLoggedOut,
-                                    __source: {
-                                        fileName: "src/components/navbar-view/navbar-view.jsx",
-                                        lineNumber: 40
-                                    },
-                                    __self: this,
-                                    children: "Log Out"
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form, {
-                            inline: true,
-                            __source: {
-                                fileName: "src/components/navbar-view/navbar-view.jsx",
-                                lineNumber: 45
-                            },
-                            __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                type: "text",
-                                placeholder: "Search",
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
+                        className: "justify-content-center ml-auto",
+                        __source: {
+                            fileName: "src/components/navbar-view/navbar-view.jsx",
+                            lineNumber: 29
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                href: movies,
                                 __source: {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                                    lineNumber: 46
+                                    lineNumber: 30
                                 },
-                                __self: this
+                                __self: this,
+                                children: "Movies"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                href: profile,
+                                __source: {
+                                    fileName: "src/components/navbar-view/navbar-view.jsx",
+                                    lineNumber: 31
+                                },
+                                __self: this,
+                                children: "Profile"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                to: "/",
+                                onClick: this.onLoggedOut,
+                                __source: {
+                                    fileName: "src/components/navbar-view/navbar-view.jsx",
+                                    lineNumber: 32
+                                },
+                                __self: this,
+                                children: "Logout"
                             })
-                        })
-                    ]
+                        ]
+                    })
                 })
             ]
         }));
     }
 }
+exports.default = NavBarView;
 
   $parcel$ReactRefreshHelpers$0880.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
 
 //# sourceMappingURL=index.e1b27ffe.js.map

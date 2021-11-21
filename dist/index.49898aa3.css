@@ -5,6 +5,9 @@
 .card-view {
   background: #faf9f8;
 }
+.movielist-view {
+  background: #454545;
+}
 .login-title {
   margin: 15px 0 15px 0;
 }
@@ -14,7 +17,6 @@
 .movie-view {
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  color: #faf9f8;
 }
 
 .movie-director, .movie-genre {
@@ -23,12 +25,10 @@
 .genre-view {
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  color: #faf9f8;
 }
 .director-view {
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  color: #faf9f8;
 }
 .label {
   font-weight: bold;
@@ -49,7 +49,9 @@
   height: 400px;
 }
 .main-view {
-  background: #454545;
+  margin-top: 70px;
+  display: inline-block;
+  width: 100%;
   font-family: Georgia, Times, "Times New Roman", serif;
 }
 .my-flix {

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // Components
 import { setMovies } from '../../actions/actions';
@@ -16,7 +16,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
-import { NavbarView } from '../navbar-view/navbar-view';
+import NavbarView from '../navbar-view/navbar-view';
 
 // Styling
 import './main-view.scss';
@@ -89,16 +89,16 @@ class MainView extends React.Component {
 
         <NavbarView user={user} />
 
-        <Link to={'/'}>
+        {/* <Link to={'/'}>
           <Button variant="link">Home</Button>
         </Link>
 
         <Link to={`/users/${user}`}>
           <Button variant="link">Profile</Button>
-        </Link>
+        </Link> */}
 
-        {/* Log Out Button */}
-        <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+
+        {/* <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button> */}
 
         <Row className="main-view justify-content-md-center">
           {/* Root */}
