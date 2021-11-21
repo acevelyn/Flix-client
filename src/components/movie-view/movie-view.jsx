@@ -29,17 +29,16 @@ export class MovieView extends React.Component {
           <span className="value">{movie.Description}</span>
           <div className="movie-director">
             <Link to={`/directors/${movie.Director.Name}`}>
-              <Button variant="link">Director</Button>
+              <Button variant="primary" size="sm">Director</Button>
             </Link>
           </div>
           <div className="movie-genre">
             <Link to={`/genres/${movie.Genre.Name}`}>
-              <Button variant="link">Genre</Button>
+              <Button variant="primary" size="sm">Genre</Button>
             </Link>
           </div>
         </div>
-
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button className="movieview-back" variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
 
       </div>
     );

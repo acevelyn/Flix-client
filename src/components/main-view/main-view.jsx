@@ -87,7 +87,8 @@ class MainView extends React.Component {
     return (
       <Router>
 
-        {/* <NavbarView user={user} /> */}
+        <NavbarView user={user} />
+
         <Link to={'/'}>
           <Button variant="link">Home</Button>
         </Link>

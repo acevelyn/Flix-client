@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 //React-Bootstrap Styling
+import './director-view.scss';
 import Button from 'react-bootstrap/Button';
 
 export class DirectorView extends React.Component {
@@ -27,7 +28,7 @@ export class DirectorView extends React.Component {
           <span className="label">Death: </span>
           <span className="value">{director.Death}</span>
         </div>
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
 
       </div>
     );

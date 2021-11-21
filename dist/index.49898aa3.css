@@ -1,12 +1,34 @@
+.movieCard-view {
+  padding: 10px;
+}
 
+.card-view {
+  background: #faf9f8;
+}
 .login-title {
   margin: 15px 0 15px 0;
 }
 .register-title {
   margin: 15px 0 10px 0;
 }
-span {
-  font-weight: 300px;
+.movie-view {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #faf9f8;
+}
+
+.movie-director, .movie-genre {
+  margin: 5px;
+}
+.genre-view {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #faf9f8;
+}
+.director-view {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #faf9f8;
 }
 .label {
   font-weight: bold;
@@ -26,7 +48,10 @@ span {
 .fav-movie figure img {
   height: 400px;
 }
-
+.main-view {
+  background: #454545;
+  font-family: Georgia, Times, "Times New Roman", serif;
+}
 .my-flix {
   color: steelblue;
 }
