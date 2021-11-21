@@ -43298,8 +43298,8 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRedux = require("react-redux");
+var _actions = require("../../actions/actions");
 // Stylings
 var _profileViewScss = require("./profile-view.scss");
 var _button = require("react-bootstrap/Button");
@@ -43309,33 +43309,33 @@ function FavMovieView({ favoriteMovieList , movies , removeFavoriteMovie  }) {
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
         __source: {
             fileName: "src/components/profile-view/favorite-movies.jsx",
-            lineNumber: 17
+            lineNumber: 21
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
             __source: {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 18
+                lineNumber: 22
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 19
+                        lineNumber: 23
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                         xs: 12,
                         __source: {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 20
+                            lineNumber: 24
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 21
+                                lineNumber: 25
                             },
                             __self: this,
                             children: "Favorite Movies"
@@ -43345,7 +43345,7 @@ function FavMovieView({ favoriteMovieList , movies , removeFavoriteMovie  }) {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 25
+                        lineNumber: 29
                     },
                     __self: this,
                     children: favoriteMovieList.length > 0 && movies.map((movie)=>{
@@ -43357,21 +43357,21 @@ function FavMovieView({ favoriteMovieList , movies , removeFavoriteMovie  }) {
                             className: "fav-movie",
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 30
+                                lineNumber: 34
                             },
                             __self: this,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure, {
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 31
+                                        lineNumber: 35
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
                                         to: `/movies/${movie._id}`,
                                         __source: {
                                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                                            lineNumber: 32
+                                            lineNumber: 36
                                         },
                                         __self: this,
                                         children: [
@@ -43380,14 +43380,14 @@ function FavMovieView({ favoriteMovieList , movies , removeFavoriteMovie  }) {
                                                 alt: movie.Title,
                                                 __source: {
                                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                    lineNumber: 33
+                                                    lineNumber: 37
                                                 },
                                                 __self: this
                                             }),
                                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Figure.Caption, {
                                                 __source: {
                                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                    lineNumber: 37
+                                                    lineNumber: 41
                                                 },
                                                 __self: this,
                                                 children: movie.Title
@@ -43403,7 +43403,7 @@ function FavMovieView({ favoriteMovieList , movies , removeFavoriteMovie  }) {
                                     },
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 42
+                                        lineNumber: 46
                                     },
                                     __self: this,
                                     children: "Remove from List"
@@ -43422,7 +43422,9 @@ FavMovieView.propTypes = {
     // movies: PropTypes.string,
     removeFavoriteMovie: _propTypesDefault.default.func
 };
-exports.default = FavMovieView;
+exports.default = _reactRedux.connect(null, {
+    updateUser: _actions.updateUser
+})(FavMovieView);
 var _c;
 $RefreshReg$(_c, "FavMovieView");
 
@@ -43431,7 +43433,7 @@ $RefreshReg$(_c, "FavMovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","prop-types":"2bysO","axios":"1IeuP","./profile-view.scss":"z96SM","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"z96SM":[function() {},{}],"5SVC1":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","prop-types":"2bysO","./profile-view.scss":"z96SM","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-redux":"lT3ms","../../actions/actions":"6dgbZ"}],"z96SM":[function() {},{}],"5SVC1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1ec0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
