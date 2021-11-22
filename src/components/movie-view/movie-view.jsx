@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
+import axios from 'axios';
 
 // React-Bootstrap Stylings
 import Button from 'react-bootstrap/Button';
@@ -10,7 +11,28 @@ import './movie-view.scss'
 
 
 export class MovieView extends React.Component {
+  constructor(props) {
+    super(props);
 
+  }
+
+  addFavoriteMovie() {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+
+    axios.post(`https://evflixapp.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {},
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(() => {
+        console.log('Added to Favorites');
+        alert('Added to Favorties');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+  }
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -38,8 +60,13 @@ export class MovieView extends React.Component {
             </Link>
           </div>
         </div>
-        <Button className="movieview-back" variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
+        <div className="add-favorite">
+          <Button variant="success" size="sm" onClick={(e) => this.addFavoriteMovie(e)}>Add to Favorites</Button>
+        </div>
 
+        <div className="back-button">
+          <Button className="movieview-back" variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
+        </div>
       </div>
     );
   }
