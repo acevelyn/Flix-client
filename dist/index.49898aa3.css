@@ -54,6 +54,11 @@
   width: 100%;
   font-family: Georgia, Times, "Times New Roman", serif;
 }
+
+.title {
+  font-weight: bold;
+  font-style: italic;
+}
 .my-flix {
   color: steelblue;
 }
