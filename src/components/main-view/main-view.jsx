@@ -15,7 +15,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { MovieView } from '../movie-view/movie-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
-import { ProfileView } from '../profile-view/profile-view';
+import ProfileView from '../profile-view/profile-view';
 import NavbarView from '../navbar-view/navbar-view';
 
 // Styling

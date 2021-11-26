@@ -25804,6 +25804,7 @@ var _movieView = require("../movie-view/movie-view");
 var _genreView = require("../genre-view/genre-view");
 var _directorView = require("../director-view/director-view");
 var _profileView = require("../profile-view/profile-view");
+var _profileViewDefault = parcelHelpers.interopDefault(_profileView);
 var _navbarView = require("../navbar-view/navbar-view");
 var _navbarViewDefault = parcelHelpers.interopDefault(_navbarView);
 // Styling
@@ -25946,7 +25947,7 @@ class MainView extends _reactDefault.default.Component {
                                 if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     className: "main-view"
                                 }));
-                                return(/*#__PURE__*/ _jsxRuntime.jsx(_profileView.ProfileView, {
+                                return(/*#__PURE__*/ _jsxRuntime.jsx(_profileViewDefault.default, {
                                     history: history,
                                     movies: movies
                                 }) // should I add removeFavoriteMovies={this.removeFavoriteMovies}
@@ -42605,7 +42606,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","prop-types":"2bysO","react-bootstrap/Button":"64Pgd","./movie-view.scss":"lHyjt","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","axios":"1IeuP"}],"lHyjt":[function() {},{}],"eGJ1e":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-router-dom":"etVME","prop-types":"2bysO","axios":"1IeuP","react-bootstrap/Button":"64Pgd","./movie-view.scss":"lHyjt","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"lHyjt":[function() {},{}],"eGJ1e":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ec38 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
