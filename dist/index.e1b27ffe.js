@@ -25690,7 +25690,7 @@ function visibilityFilter(state = '', action) {
             return state;
     }
 }
-function user(state = [], action) {
+function user(state = null, action) {
     switch(action.type){
         case _actions.SET_USER:
             return action.value;
@@ -42909,8 +42909,6 @@ $parcel$ReactRefreshHelpers$80e7.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
-);
 var _jsxRuntime = require("react/jsx-runtime");
 // CLASS COMPONENT
 var _react = require("react");
@@ -42936,11 +42934,6 @@ class ProfileView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
-            Username: null,
-            Password: null,
-            Email: null,
-            Birthday: null,
-            FavoriteMovies: [],
             validated: null,
             tempUsername: '',
             tempPassword: '',
@@ -42962,12 +42955,7 @@ class ProfileView extends _reactDefault.default.Component {
             }
         }).then((response)=>{
             console.log(response);
-            this.setState({
-                Username: response.data.Username,
-                Email: response.data.Email,
-                Birthday: response.data.Birthday,
-                FavoriteMovies: response.data.FavoriteMovies
-            });
+            this.props.setUser(response.data);
         }).catch((error)=>{
             console.log(error);
         });
@@ -43033,19 +43021,19 @@ class ProfileView extends _reactDefault.default.Component {
     }
     // RENDER THIS..
     render() {
-        const { movies  } = this.props;
-        const { user  } = this.props;
+        const { movies , user  } = this.props;
+        console.log(this.props);
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 151
+                lineNumber: 141
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 152
+                        lineNumber: 142
                     },
                     __self: this,
                     children: [
@@ -43054,30 +43042,30 @@ class ProfileView extends _reactDefault.default.Component {
                             sm: 4,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 153
+                                lineNumber: 143
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 154
+                                    lineNumber: 144
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 155
+                                        lineNumber: 145
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_userInfoDefault.default, {
-                                        name: this.state.Username,
-                                        email: this.state.Email,
-                                        birthday: this.state.Birthday,
+                                        name: user.Username,
+                                        email: user.Email,
+                                        birthday: user.Birthday,
                                         // from mapState Adding the "user" state to the UserInfo component
                                         user: user,
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 156
+                                            lineNumber: 146
                                         },
                                         __self: this
                                     })
@@ -43089,33 +43077,30 @@ class ProfileView extends _reactDefault.default.Component {
                             sm: 8,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 166
+                                lineNumber: 156
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 167
+                                    lineNumber: 157
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 168
+                                        lineNumber: 158
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_updateUserDefault.default, {
-                                        user: {
-                                            Username: this.state.Username,
-                                            Email: this.state.Email
-                                        },
-                                        handleUser: (user)=>{
-                                            this.setState(user);
-                                            if (user.Username && this.state.Username !== user.Username) localStorage.setItem('user', user.Username);
+                                        user: user,
+                                        handleUser: (u)=>{
+                                            this.props.setUser(user);
+                                            if (u.Username && user.Username !== u.Username) localStorage.setItem('user', u.Username);
                                         },
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 169
+                                            lineNumber: 159
                                         },
                                         __self: this
                                     })
@@ -43125,12 +43110,12 @@ class ProfileView extends _reactDefault.default.Component {
                     ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMoviesDefault.default, {
-                    favoriteMovieList: this.state.FavoriteMovies,
-                    movies: this.props.movies,
+                    favoriteMovieList: user.FavoriteMovies,
+                    movies: movies,
                     removeFavoriteMovie: this.removeFavoriteMovie,
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 184
+                        lineNumber: 171
                     },
                     __self: this
                 }),
@@ -43138,21 +43123,21 @@ class ProfileView extends _reactDefault.default.Component {
                     className: "other-options",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 187
+                        lineNumber: 174
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx("br", {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 188
+                                lineNumber: 175
                             },
                             __self: this
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 189
+                                lineNumber: 176
                             },
                             __self: this,
                             children: "Delete Account"
@@ -43164,7 +43149,7 @@ class ProfileView extends _reactDefault.default.Component {
                             ,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 191
+                                lineNumber: 178
                             },
                             __self: this,
                             children: "Deregister"
@@ -43172,7 +43157,7 @@ class ProfileView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx("br", {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 193
+                                lineNumber: 180
                             },
                             __self: this
                         })

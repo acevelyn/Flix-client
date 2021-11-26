@@ -19,15 +19,10 @@ import './profile-view.scss';
 import { Row, Container, Col, Button, Form, Card } from 'react-bootstrap';
 
 
-export class ProfileView extends React.Component {
+class ProfileView extends React.Component {
   constructor() {
     super();
     this.state = {
-      Username: null,
-      Password: null,
-      Email: null,
-      Birthday: null,
-      FavoriteMovies: [],
       validated: null,
       tempUsername: '',
       tempPassword: '',
@@ -55,12 +50,7 @@ export class ProfileView extends React.Component {
       })
       .then((response) => {
         console.log(response);
-        this.setState({
-          Username: response.data.Username,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies
-        });
+        this.props.setUser(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -145,8 +135,8 @@ export class ProfileView extends React.Component {
 
   // RENDER THIS..
   render() {
-    const { movies } = this.props;
-    const { user } = this.props;
+    const { movies, user } = this.props;
+    console.log(this.props);
     return (
       <Container>
         <Row>
@@ -154,9 +144,9 @@ export class ProfileView extends React.Component {
             <Card>
               <Card.Body>
                 <UserInfo
-                  name={this.state.Username}
-                  email={this.state.Email}
-                  birthday={this.state.Birthday}
+                  name={user.Username}
+                  email={user.Email}
+                  birthday={user.Birthday}
                   // from mapState Adding the "user" state to the UserInfo component
                   user={user} />
               </Card.Body>
@@ -167,21 +157,18 @@ export class ProfileView extends React.Component {
             <Card>
               <Card.Body>
                 <UpdateUser
-                  user={{
-                    Username: this.state.Username,
-                    Email: this.state.Email
-                  }}
-                  handleUser={(user) => {
-                    this.setState(user);
-                    if (user.Username && this.state.Username !== user.Username) {
-                      localStorage.setItem('user', user.Username);
+                  user={user}
+                  handleUser={(u) => {
+                    this.props.setUser(user);
+                    if (u.Username && user.Username !== u.Username) {
+                      localStorage.setItem('user', u.Username);
                     }
                   }} />
               </Card.Body>
             </Card>
           </Col>
         </Row>
-        <FavMovieView favoriteMovieList={this.state.FavoriteMovies} movies={this.props.movies} removeFavoriteMovie={this.removeFavoriteMovie} />
+        <FavMovieView favoriteMovieList={user.FavoriteMovies} movies={movies} removeFavoriteMovie={this.removeFavoriteMovie} />
 
         {/* DELETE ACCOUNT */}
         <div className="other-options">
