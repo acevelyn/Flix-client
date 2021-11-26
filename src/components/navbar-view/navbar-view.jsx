@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export class NavBarView extends React.Component {
   constructor() {
@@ -27,9 +28,9 @@ export class NavBarView extends React.Component {
 
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="justify-content-center ml-auto">
-            <Nav.Link href={movies}>Movies</Nav.Link>
-            <Nav.Link href={profile}>Profile</Nav.Link>
-            <Nav.Link to={"/"} onClick={this.onLoggedOut}>
+            <Nav.Link as={Link} to={movies}>Movies</Nav.Link>
+            <Nav.Link as={Link} to={profile}>Profile</Nav.Link>
+            <Nav.Link as={Link} to={"/"} onClick={this.onLoggedOut}>
               Logout
             </Nav.Link>
           </Nav>
