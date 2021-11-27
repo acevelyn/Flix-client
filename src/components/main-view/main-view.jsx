@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Components
 import { setMovies } from '../../actions/actions';
@@ -87,18 +87,18 @@ class MainView extends React.Component {
     return (
       <Router>
 
-        <NavbarView user={user} />
+        {/* <NavbarView user={user} /> */}
 
-        {/* <Link to={'/'}>
+        <Link to={'/'}>
           <Button variant="link">Home</Button>
         </Link>
 
         <Link to={`/users/${user}`}>
           <Button variant="link">Profile</Button>
-        </Link> */}
+        </Link>
 
 
-        {/* <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button> */}
+        <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
 
         <Row className="main-view justify-content-md-center">
           <h1 className="title">Ev's Flix App</h1>

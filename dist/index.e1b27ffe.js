@@ -25793,7 +25793,6 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRedux = require("react-redux");
 var _reactRouterDom = require("react-router-dom");
-// import { Link } from 'react-router-dom';
 // Components
 var _actions = require("../../actions/actions");
 var _moviesList = require("../movies-list/movies-list");
@@ -25872,13 +25871,51 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_navbarViewDefault.default, {
-                    user: user,
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                    to: '/',
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 90
+                        lineNumber: 92
                     },
-                    __self: this
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                        variant: "link",
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 93
+                        },
+                        __self: this,
+                        children: "Home"
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                    to: `/users/${user}`,
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 96
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                        variant: "link",
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 97
+                        },
+                        __self: this,
+                        children: "Profile"
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                    variant: "link",
+                    onClick: ()=>{
+                        this.onLoggedOut();
+                    },
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 101
+                    },
+                    __self: this,
+                    children: "Logout"
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
                     className: "main-view justify-content-md-center",
@@ -43667,8 +43704,6 @@ $parcel$ReactRefreshHelpers$0880.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "NavBarView", ()=>NavBarView
-);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -43770,6 +43805,6 @@ exports.default = NavBarView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-router-dom":"etVME"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","react-router-dom":"etVME","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"hRkrD":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequire08d5")
 
 //# sourceMappingURL=index.e1b27ffe.js.map

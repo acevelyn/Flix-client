@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-export class NavBarView extends React.Component {
+class NavBarView extends React.Component {
   constructor() {
     super();
 
