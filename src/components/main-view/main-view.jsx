@@ -86,18 +86,15 @@ class MainView extends React.Component {
 
     return (
       <Router>
-
         {/* <NavbarView user={user} /> */}
 
+        {/* Back up Navigation */}
         <Link to={'/'}>
           <Button variant="link">Home</Button>
         </Link>
-
         <Link to={`/users/${user}`}>
           <Button variant="link">Profile</Button>
         </Link>
-
-
         <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
 
         <Row className="main-view justify-content-md-center">

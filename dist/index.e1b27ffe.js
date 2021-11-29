@@ -25892,14 +25892,14 @@ class MainView extends _reactDefault.default.Component {
                     to: `/users/${user}`,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 96
+                        lineNumber: 95
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                         variant: "link",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 97
+                            lineNumber: 96
                         },
                         __self: this,
                         children: "Profile"
@@ -25912,7 +25912,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 101
+                        lineNumber: 98
                     },
                     __self: this,
                     children: "Logout"
@@ -25921,7 +25921,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 103
+                        lineNumber: 100
                     },
                     __self: this,
                     children: [
@@ -25929,7 +25929,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "title",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 104
+                                lineNumber: 101
                             },
                             __self: this,
                             children: "Ev's Flix App"
@@ -25952,7 +25952,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 106
+                                lineNumber: 103
                             },
                             __self: this
                         }),
@@ -25969,7 +25969,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 115
+                                lineNumber: 112
                             },
                             __self: this
                         }),
@@ -25992,7 +25992,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 123
+                                lineNumber: 120
                             },
                             __self: this
                         }),
@@ -26018,7 +26018,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 133
+                                lineNumber: 130
                             },
                             __self: this
                         }),
@@ -26044,7 +26044,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 144
+                                lineNumber: 141
                             },
                             __self: this
                         }),
@@ -26070,7 +26070,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 155
+                                lineNumber: 152
                             },
                             __self: this
                         })
