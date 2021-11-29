@@ -86,7 +86,7 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        {/* <NavbarView user={user} /> */}
+        <NavbarView user={user} />
 
         {/* Back up Navigation */}
         <Link to={'/'}>

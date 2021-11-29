@@ -25,7 +25,6 @@ class NavBarView extends React.Component {
     return (
       <Navbar className="main-nav" bg="dark" collapseOnSelect fixed="top" expand="lg" variant="dark">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="justify-content-center ml-auto">
             <Nav.Link as={Link} to={movies}>Movies</Nav.Link>

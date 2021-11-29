@@ -137,6 +137,10 @@ class ProfileView extends React.Component {
   render() {
     const { movies, user } = this.props;
     console.log(this.props);
+
+    if (user === null) {
+      return null;
+    }
     return (
       <Container>
         <Row>
