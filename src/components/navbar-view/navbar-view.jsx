@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Navbar, Nav } from "react-bootstrap";
+import NavLink from "react-bootstrap/NavLink";
 import { Link } from 'react-router-dom';
 
 class NavBarView extends React.Component {
@@ -27,11 +28,11 @@ class NavBarView extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="justify-content-center ml-auto">
-            <Nav.Link as={Link} to={movies}>Movies</Nav.Link>
-            <Nav.Link as={Link} to={profile}>Profile</Nav.Link>
-            <Nav.Link as={Link} to={"/"} onClick={this.onLoggedOut}>
+            <NavLink as={Link} to={movies}>Movies</NavLink>
+            <NavLink as={Link} to={profile}>Profile</NavLink>
+            <NavLink as={Link} to={"/"} onClick={this.onLoggedOut}>
               Logout
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
