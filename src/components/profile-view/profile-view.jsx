@@ -103,9 +103,10 @@ class ProfileView extends React.Component {
       {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then(() => {
+      .then((response) => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        // this.props.setUser(response.data);
         alert("Your account has been deleted");
         window.open('/', "_self");
       })
@@ -125,8 +126,8 @@ class ProfileView extends React.Component {
       })
       .then((response) => {
         console.log('Movie was removed')
+        this.props.setUser(response.data);
         alert('Movie was removed from Favorites')
-        window.open(`/users/${username}`, '_self');
       })
       .catch((error) => {
         console.log(error);
@@ -172,7 +173,11 @@ class ProfileView extends React.Component {
             </Card>
           </Col>
         </Row>
-        <FavMovieView favoriteMovieList={user.FavoriteMovies} movies={movies} removeFavoriteMovie={this.removeFavoriteMovie} />
+        <FavMovieView
+          favoriteMovieList={user.FavoriteMovies}
+          movies={movies}
+          removeFavoriteMovie={(movieId) => this.removeFavoriteMovie(movieId)}
+        />
 
         {/* DELETE ACCOUNT */}
         <div className="other-options">
