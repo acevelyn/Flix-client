@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
 import axios from 'axios';
 
+// Redux Store
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+
 // React-Bootstrap Stylings
 import Button from 'react-bootstrap/Button';
 
@@ -10,7 +14,7 @@ import Button from 'react-bootstrap/Button';
 import './movie-view.scss'
 
 
-export class MovieView extends React.Component {
+class MovieView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,9 +28,10 @@ export class MovieView extends React.Component {
       {
         headers: { Authorization: `Bearer ${token}` }
       })
-      .then(() => {
+      .then((response) => {
         console.log('Added to Favorites');
         alert('Added to Favorties');
+        this.props.setUser(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -71,6 +76,8 @@ export class MovieView extends React.Component {
     );
   }
 }
+
+export default connect(null, { setUser })(MovieView);
 
 MovieView.propTypes = {
   movie: PropTypes.shape({
