@@ -61,7 +61,6 @@ class MainView extends React.Component {
 
   // Log In
   onLoggedIn(authData) {
-    console.log(authData);
     this.setState({
       user: authData.user.Username
     });
