@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
 import axios from 'axios';
 
-
 // Redux Store
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
@@ -31,8 +30,8 @@ class MovieView extends React.Component {
       })
       .then((response) => {
         console.log('Added to Favorites');
-        this.props.setUser(response.data);
         alert('Added to Favorties');
+        this.props.setUser(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +45,7 @@ class MovieView extends React.Component {
     return (
       <div className="movie-view">
         <div className="movie-poster">
-          <img src={movie.ImagePath} fluid crossOrigin="true" />
+          <img src={movie.ImagePath} />
         </div>
         <div className="movie-title">
           <span className="label">Title: </span>
