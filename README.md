@@ -1,5 +1,5 @@
 # Flix-client
-myFlix-client app is the REACT client side application of my "movieAPI" application. It will be the visual interface that allows user to interact with the application's database to search for movies and movie details such as genres and directors. It will also give users the ability to sign up for an account, edit their account and create and/or modify their own favorite movies list. 
+myFlix-client app is the client side React application of my "movieAPI" application. It will be the visual interface that allows user to interact with the application's database to search for movies and movie details such as genres and directors. It will also give users the ability to sign up for an account, edit their account and create and/or modify their own favorite movies list. 
 
 ## Tech Stack
 MongoDB<br>
