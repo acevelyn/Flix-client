@@ -13,5 +13,8 @@ It will be the visual interface that allows users to interact with the applicati
 - React-Router-DOM
 - React-DevTools-Extension
 
+### How to Start Application?
+parcel src/index.html
+
 ### Offical Link
 Coming soon!
