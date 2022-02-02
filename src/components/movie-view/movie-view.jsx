@@ -44,8 +44,9 @@ class MovieView extends React.Component {
 
     return (
       <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} />
+        <div className="movie-poster"
+          style={{ textAlign: "left", marginBottom: "30px" }}>
+          <img src={movie.ImagePath} width="300" />
         </div>
         <div className="movie-title">
           <span className="label">Title: </span>
