@@ -97,7 +97,7 @@ class MainView extends React.Component {
         <Button variant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
 
         <Row className="main-view justify-content-md-center">
-          <h1 className="title">Ev's Flix App</h1>
+          <h1 className="title">The Flix App</h1>
           {/* Root */}
           <Route exact path="/" render={() => {
             if (!user) return <Col>
